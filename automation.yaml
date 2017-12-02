@@ -1,0 +1,20 @@
+### TURN ON THE LIGHTS AROUND SUNSET
+- alias: 'Light on Sunset'  
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "-00:15:00"
+
+  action:
+   - service: homeassistant.turn_on
+     entity_id: switch.porch_lights_switch
+### TURN OFF THE LIGHTS AT SUNRISE
+- alias: 'Light off Sunrise'  
+  trigger:
+    platform: sun
+    event: sunrise
+    offset: "+00:30:00"
+
+  action:
+   - service: homeassistant.turn_off
+     entity_id: switch.porch_lights_switch

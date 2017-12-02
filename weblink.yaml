@@ -1,0 +1,7 @@
+entities:
+  - name: Router 
+    url: http://192.168.1.1
+  - name: News
+    url: https://www.google.com/news
+  - name: Traffic
+    url: https://www.sigalert.com/map.asp?lat=38.5643&lon=-121.5064&z=0

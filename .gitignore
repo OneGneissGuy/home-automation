@@ -1,0 +1,9 @@
+secrets.yaml
+known_devices.yaml
+customizations/devices.yaml
+*.log
+*.db
+*.HA_VERSION
+*.uuid
+*OZW*.txt
+*.sqlite

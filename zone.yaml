@@ -1,0 +1,14 @@
+# Zones
+  - name: Home
+    icon: mdi:home-outline
+    latitude: !secret home_latitude
+    longitude: !secret home_longitude
+    radius: 100
+  - name: JF Work
+    latitude: !secret jf_work_latitude
+    longitude: !secret jf_work_longitude
+    radius: 500
+  - name: Stacy Work
+    latitude: !secret shmoopy_work_latitude
+    longitude: !secret shmoopy_work_longitude
+    radius: 500

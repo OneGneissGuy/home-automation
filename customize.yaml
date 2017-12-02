@@ -1,0 +1,83 @@
+#icons - https://materialdesignicons.com/
+# SENSORS
+sensor.shed_temperature:
+  icon: mdi:thermometer
+sensor.shed_humidity:
+  icon: mdi:water-percent
+sensor.owm_temperature:
+  icon: mdi:thermometer
+sensor.owm_humidity:
+  icon: mdi:water-percent
+sensor.owm_wind_speed:
+  icon: mdi:weather-windy
+sensor.cpu_temperature:
+  icon: mdi:thermometer
+sensor.shed_pressure:
+  icon: mdi:thermometer
+sensor.owm_pressure:
+  icon: mdi:thermometer
+sensor.owm_forecast:
+  icon: mdi:weather-cloudy
+sensor.owm_condition:
+  icon: mdi:weather-cloudy
+sensor.speedtest_ping:
+  friendly_name: Ping Speed
+  icon: mdi:speedometer
+sensor.speedtest_upload:
+  friendly_name: Upload Speed
+  icon: mdi:download
+sensor.speedtest_download:
+  friendly_name: Download Speed
+  icon: mdi:download
+# System Info Sensor
+sensor.cpu_speed:
+  friendly_name: CPU Speed
+  icon: mdi:speedometer
+sensor.cpu_used:
+  friendly_name: CPU Used
+sensor.disk_free_:
+  friendly_name: Disk Free Space
+sensor.ram_free:
+  friendly_name: Available Memory
+sensor.ipv4_address_wlan0:
+  friendly_name: Local IP Address
+sensor.last_boot:
+  friendly_name: Last Boot
+sensor.since_last_boot:
+  friendly_name: Up Time
+#sensor.signal_strength:
+#  icon: mdi:signal
+#sensor.link_quality:
+#  icon: mdi:link-variant
+sensor.ha_installed_version:
+  icon: mdi:home-assistant
+sensor.ha_current_version:
+  icon: mdi:home-assistant
+sensor.ha_last_restart:
+  icon: mdi:home-assistant
+sensor.external_ip:
+  friendly_name: WAN IP Address
+  icon: mdi:wan
+# SWITCHES
+switch.cpu_fan:
+  friendly_name: CPU Cooling Fan
+  icon: mdi:fan
+switch.office_light:
+  icon: mdi:lightbulb
+  emulated_hue_name: "office light"
+switch.christmas_tree:
+  icon: mdi:lightbulb
+  emulated_hue_name: "christmas tree"
+switch.porch_lights_switch:
+  icon: mdi:lightbulb
+  emulated_hue_name: "front lights"
+switch.deck_light_switch:
+  icon: mdi:lightbulb
+  emulated_hue_name: "back lights"
+switch.pir_office:
+  icon: mdi:led-outline
+# TRACKED DEVICES
+device_tracker.jf_note5:
+  icon: mdi:account-location
+device_tracker.shmoopy_galaxy:
+  icon: mdi:account-location

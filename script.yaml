@@ -1,0 +1,7 @@
+#owntracks_update:
+#  sequence:
+#    - service: mqtt.publish
+#      data:
+#        topic: owntracks/home/jfNote5/cmd 
+#        payload: '{"_type":"cmd","action":"reportLocation"}"'
+restart_ha: !include scripts/restart_ha.yaml

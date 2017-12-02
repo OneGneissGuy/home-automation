@@ -1,0 +1,5 @@
+#switch:
+  - platform: rpi_gpio
+    ports:
+      17: CPU Fan 
+      18: PIR Office

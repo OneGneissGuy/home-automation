@@ -1,0 +1,108 @@
+#sensor:
+  - platform: yr
+#Date/time
+  - platform: time_date
+    display_options:
+    - date
+    - time
+  - platform: rest
+    resource: http://ip.jsontest.com
+    name: external_ip
+    value_template: '{{ value_json.ip }}'
+    scan_interval: 86400
+
+  - platform: command_line
+    name: CPU Temperature
+    command: cat /sys/class/thermal/thermal_zone0/temp
+    unit_of_measurement: 'F'
+    value_template: '{{ (value|int / 1000 * 1.8 + 32)|round(1) }}'
+# speedtest
+
+  - platform: speedtest
+    minute: 30
+    hour:
+      - 0
+      - 6
+      - 12
+      - 18
+    monitored_conditions:
+      - ping
+      - download
+      - upload
+  
+  - platform: systemmonitor
+    resources:
+      - type: disk_free
+        arg: /
+      - type: memory_free
+      - type: processor_use
+#      - type: ipv4_address
+#        arg: wlan0
+      - type: last_boot
+      - type: since_last_boot
+
+  - platform: rest
+    resource: https://pypi.python.org/pypi/homeassistant/json
+    name: HA Current Version
+    value_template: '{{ value_json.info.version }}'
+
+  - platform: command_line
+    name: HA Installed Version
+    command: /srv/homeassistant/bin/hass --version
+    scan_interval: 86400
+
+#  - platform: command_line
+#    name: Signal Strength
+#    #command: "iwconfig wlan0 | grep -i signal"
+#    command: "ifconfig enxb827eb54f44e
+#    value_template: >
+#      {{ value.split(' ')[4].split('=')[1][1:] }}
+#    unit_of_measurement: 'dBm'
+
+#  - platform: command_line
+#    name: Link Quality
+#    command: "iwconfig wlan0 | grep -i signal"
+#    value_template: >
+#     {{ value.split(' ')[1].split('=')[1]  }}
+
+# Arduino based mqtt sensor data
+  - platform: mqtt
+    state_topic: "sensor/humidity"
+    name: "Shed Humidity"
+    qos: 0
+    unit_of_measurement: "%"
+  - platform: mqtt
+    state_topic: "sensor/temperature"
+    name: "Shed Temperature"
+    qos: 0
+    unit_of_measurement: "ºF"
+  - platform: mqtt
+    state_topic: "sensor/pressure"
+    name: "Shed Pressure"
+    qos: 0
+    unit_of_measurement: "in Hg"
+# Local weather report from openweathermap
+  - platform: openweathermap
+    minute:
+    - 0
+    - 15
+    - 30
+    - 45
+    api_key: !secret owm_key
+    forecast: 1
+    monitored_conditions:
+     - weather
+     - temperature
+     - wind_speed
+     - humidity
+     - pressure
+
+#Fitbit
+#  - platform: fitbit
+#    monitored_resources:
+#    - activities/calories
+#    - activities/distance
+#    - activities/heart
+#    - sleep/startTime
+#    - sleep/timeInBed
+

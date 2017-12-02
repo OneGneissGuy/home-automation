@@ -1,0 +1,104 @@
+############################################################
+#                                                          #
+#                     Group Tabs                           #
+#                                                          #
+############################################################
+
+default_view:
+  view: yes
+  icon: mdi:home 
+  entities:
+  - group.Lights
+  - camera.porch
+  - group.links
+#  - group.Weather
+
+
+Climate:
+  view: yes
+  icon: mdi:weather-cloudy
+  entities:
+  - group.Weather
+  - group.shed
+Other:
+  icon: mdi:desktop-classic
+  name: Other
+  view: yes
+  entities:
+    - group.system_monitor
+    - group.internet
+    - group.links
+    - group.Date
+    - switch.pir_office
+############################################################
+#                                                          #
+#                  Entities Groups                         #
+#                                                          #
+############################################################
+System Monitor:
+  entities:
+    - switch.cpu_fan
+    - sensor.cpu_used
+    - sensor.cpu_temperature
+    - sensor.ram_available
+    - sensor.disk_free_
+#    - sensor.link_quality
+#    - sensor.signal_strength
+#    - sensor.ipv4_address_wlan0
+    - sensor.uptime
+    - sensor.last_boot
+    - sensor.since_last_boot
+    - sensor.ha_installed_version
+    - sensor.ha_current_version
+
+Internet:
+  entities:
+  - sensor.external_ip
+  - sensor.speedtest_ping 
+  - sensor.speedtest_upload
+  - sensor.speedtest_download
+
+Lights:
+  entities:
+   - switch.office_light
+   - switch.christmas_tree
+   - switch.porch_lights_switch
+   - switch.deck_light_switch
+Shed:
+  entities:
+    - sensor.shed_temperature
+    - sensor.shed_humidity
+    - sensor.shed_pressure
+Weather:
+   entities:
+    - sensor.owm_forecast
+    - sensor.owm_condition
+    - sensor.owm_temperature
+    - sensor.owm_humidity
+    - sensor.owm_pressure
+    - sensor.owm_wind_speed
+    - camera.doppler
+
+People:
+  name: people
+  icon: mdi:account-multiple
+  view: yes
+  entities:
+   - device_tracker.jf_note5
+   - device_tracker.shmoopy_galaxy
+Date:
+  entities:
+   - sensor.date
+   - sensor.time
+Settings:
+  view: yes
+  name: Settings
+  icon: mdi:settings
+  entities:
+   - group.scripts
+Scripts:
+  - script.restart_ha
+Links:
+  - weblink.router
+  - weblink.news
+  - weblink.traffic

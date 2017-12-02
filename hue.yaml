@@ -1,0 +1,5 @@
+  host_ip: 192.168.1.150
+  listen_port: 8300
+  exposed_domains:
+   - switch
+   - light
