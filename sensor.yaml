@@ -85,9 +85,6 @@
   - platform: openweathermap
     minute:
     - 0
-    - 15
-    - 30
-    - 45
     api_key: !secret owm_key
     forecast: 1
     monitored_conditions:
@@ -96,6 +93,7 @@
      - wind_speed
      - humidity
      - pressure
+     - rain
 
 #Fitbit
 #  - platform: fitbit

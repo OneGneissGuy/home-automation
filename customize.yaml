@@ -16,6 +16,8 @@ sensor.shed_pressure:
   icon: mdi:thermometer
 sensor.owm_pressure:
   icon: mdi:thermometer
+sensor.own_rain:
+  icon: mdi:weather-rainy
 sensor.owm_forecast:
   icon: mdi:weather-cloudy
 sensor.owm_condition:
