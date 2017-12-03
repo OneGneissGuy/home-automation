@@ -95,6 +95,7 @@ Settings:
   name: Settings
   icon: mdi:settings
   entities:
+   - switch.aeotec_zstick_disco_light
    - group.scripts
 Scripts:
   - script.restart_ha

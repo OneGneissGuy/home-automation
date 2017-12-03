@@ -1,20 +1,60 @@
 ### TURN ON THE LIGHTS AROUND SUNSET
-- alias: 'Light on Sunset'  
-  trigger:
-    platform: sun
-    event: sunset
-    offset: "-00:15:00"
-
-  action:
-   - service: homeassistant.turn_on
-     entity_id: switch.porch_lights_switch
+  - alias: 'Light on Sunset'  
+    trigger:
+      platform: sun
+      event: sunset
+      offset: "-00:15:00"
+    action:
+      - service: homeassistant.turn_on
+        entity_id: switch.porch_lights_switch
 ### TURN OFF THE LIGHTS AT SUNRISE
-- alias: 'Light off Sunrise'  
-  trigger:
-    platform: sun
-    event: sunrise
-    offset: "+00:30:00"
+  - alias: 'Light off Sunrise'  
+    trigger:
+      platform: sun
+      event: sunrise
+      offset: "+00:30:00"
+    action:
+     - service: homeassistant.turn_off
+       entity_id: switch.porch_lights_switch
 
-  action:
-   - service: homeassistant.turn_off
-     entity_id: switch.porch_lights_switch
+#################################################################
+## HASS Related
+#################################################################
+### CONFIGURE FRONTEND THEMES
+  - alias: 'Set theme at startup'
+    initial_state: 'on'
+    trigger:
+     - platform: homeassistant
+       event: start
+    action:
+      service: frontend.set_theme
+      data:
+        name: darkcyan
+  - alias: 'Set dark theme for the night'
+    initial_state: True
+    trigger:
+      - platform: time
+        at: '21:00'
+    action:
+      - service: frontend.set_theme
+        data:
+          name: darkred
+  - id: change_current_theme
+    alias: 'Change Current Theme'
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: input_select.current_theme
+    action:
+      - service: frontend.set_theme
+        data_template:
+          name: '{{states.input_select.current_theme.state}}'
+### HEAL ZWAVE NETWORK DAILY
+  - id: heal_zwave_network
+    alias: Heal Z-Wave Network
+    initial_state: 'on'
+    trigger:
+      platform: time
+      at: '2:31:00'
+    action:
+     - service: zwave.heal_network

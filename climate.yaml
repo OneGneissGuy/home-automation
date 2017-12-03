@@ -1,0 +1,6 @@
+climate:
+  - platform: honeywell
+    username: !secret honeywell_username
+    password: !secret honeywell_password
+    scan_interval: 600
+

@@ -16,8 +16,6 @@ homeassistant:
 
 # Show links to resources in log and frontend
 #introduction:
-# Enables the frontend
-frontend:
 
 # Enables configuration UI
 config:
@@ -66,6 +64,8 @@ emulated_hue: !include hue.yaml
  ### INCLUDES ###
 # armcrest: !include armcrest.yaml
 # lights: !include lights.yaml
+# climate: !include climate.yaml
+frontend: !include frontend.yaml
 automation: !include automation.yaml
 camera: !include camera.yaml
 device_tracker: !include device_tracker.yaml
