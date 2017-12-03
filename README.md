@@ -68,19 +68,6 @@ sudo systemctl restart home-assistant@homeassistant
 ```sh
 sudo hassbian-config show
 ```
-
-* Install [hassctl](https://github.com/dale3h/hassctl) to more easily control home-assistant
-
-```sh
-sudo curl -o /usr/local/bin/hassctl https://raw.githubusercontent.com/dale3h/hassctl/master/hassctl && sudo chmod +x /usr/local/bin/hassctl
-```
-
-* hassctl method to update home-assistant
-
-```sh
-hassctl update-hass && hassctl config && hassctl restart
-```
-
 * Install some useful services
 
 ```sh
@@ -100,6 +87,18 @@ sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
 
 ```sh
 lsusb
+```
+
+* Install [hassctl](https://github.com/dale3h/hassctl) to more easily control home-assistant
+
+```sh
+sudo curl -o /usr/local/bin/hassctl https://raw.githubusercontent.com/dale3h/hassctl/master/hassctl && sudo chmod +x /usr/local/bin/hassctl
+```
+
+* hassctl method to update home-assistant
+
+```sh
+hassctl update-hass && hassctl config && hassctl restart
 ```
 
 * Reboot the pi
