@@ -107,4 +107,3 @@ lsusb
 ```sh
 sudo reboot now
 ```
-```
