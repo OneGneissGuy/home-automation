@@ -60,7 +60,10 @@ zwave:
    usb_path: /dev/ttyACM0
    network_key: !secret zwave_ntwk_key
 emulated_hue: !include hue.yaml
-
+notify:
+  - name: simple_notifier
+    platform: pushbullet
+    api_key: !secret pushbullet_token
  ### INCLUDES ###
 # armcrest: !include armcrest.yaml
 # lights: !include lights.yaml
@@ -71,6 +74,7 @@ camera: !include camera.yaml
 device_tracker: !include device_tracker.yaml
 group: !include group.yaml 
 mqtt: !include mqtt.yaml
+#notify: !include notify.yaml
 script: !include script.yaml
 sensor: !include sensor.yaml
 switch: !include switch.yaml

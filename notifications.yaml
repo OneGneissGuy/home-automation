@@ -1,0 +1,3 @@
+  - name: simple_notifier
+    platform: pushbullet
+    api_key: !secret pushbullet_token
