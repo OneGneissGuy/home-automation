@@ -46,7 +46,11 @@ conversation:
 
 # View all events in a logbook
 #logbook:
-
+logger:
+  default: error
+  logs:
+    custom_components.lyric: debug
+    custom_components.climate.lyric: debug
 # Enables a map showing the location of tracked devices
 map:
 
@@ -64,7 +68,8 @@ notify:
   - name: simple_notifier
     platform: pushbullet
     api_key: !secret pushbullet_token
- ### INCLUDES ###
+
+### INCLUDES ###
 # armcrest: !include armcrest.yaml
 # lights: !include lights.yaml
 # climate: !include climate.yaml
@@ -73,8 +78,9 @@ automation: !include automation.yaml
 camera: !include camera.yaml
 device_tracker: !include device_tracker.yaml
 group: !include group.yaml 
+# lyric: !include lyric_t5.yaml
 mqtt: !include mqtt.yaml
-#notify: !include notify.yaml
+# notify: !include notify.yaml
 script: !include script.yaml
 sensor: !include sensor.yaml
 switch: !include switch.yaml

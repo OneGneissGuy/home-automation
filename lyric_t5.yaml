@@ -1,0 +1,5 @@
+# Honeywell T5 thermostat custom component 
+# based on bramkragten/home-assistant/blob/lyric/homeassistant/components/climate/lyric.py
+# See this thread for help: https://community.home-assistant.io/t/honeywell-lyric-thermostat/3520/23
+  client_id: !secret honeywell_key
+  client_secret: !secret honeywell_secret

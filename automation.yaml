@@ -3,7 +3,7 @@
     trigger:
       platform: sun
       event: sunset
-      offset: "-00:15:00"
+      offset: "-00:30:00"
     action:
       - service: homeassistant.turn_on
         entity_id: switch.porch_lights_switch
@@ -12,11 +12,21 @@
     trigger:
       platform: sun
       event: sunrise
-      offset: "+00:30:00"
+      offset: "+00:10:00"
     action:
      - service: homeassistant.turn_off
        entity_id: switch.porch_lights_switch
-
+  - alias: Freeze Warning
+    trigger:
+      platform: numeric_state
+      entity_id: sensor.owm_temperature
+      below: 32
+    action:
+     - service: notify.pushbullet
+       data_template:
+         title: "freeze warning"
+         target: "device/Samsung SM-N920V"
+         message: "Impending freeze.Cover the plants!"
 #################################################################
 ## HASS Related
 #################################################################
@@ -58,3 +68,13 @@
       at: '2:31:00'
     action:
      - service: zwave.heal_network
+  - alias: Update notifications
+    trigger:
+     - platform: state
+       entity_id: updater.updater
+    action:
+     - service: notify.pushbullet
+       data_template: 
+         title: 'New Home Assistant Release'
+         target: ["device/Samsung SM-N920V", "email/jfsaraceno@gmail.com"] #See Pushbullet component for usage
+         message: "Home Assistant  {{ states.updater.updater.state }}  is now available."
