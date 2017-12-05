@@ -8,18 +8,19 @@ default_view:
   view: yes
   icon: mdi:home 
   entities:
-  - group.Lights
+  - group.lights
   - camera.porch
-  - group.links
-#  - group.Weather
-
-
+  - group.links 
+  - climate.lyric
+  - switch.lyric_hold
 Climate:
   view: yes
   icon: mdi:weather-cloudy
   entities:
   - group.Weather
   - group.shed
+  - climate.lyric
+
 Other:
   icon: mdi:desktop-classic
   name: Other
@@ -30,6 +31,7 @@ Other:
     - group.links
     - group.Date
     - switch.pir_office
+    # - camera.worldtime
 ############################################################
 #                                                          #
 #                  Entities Groups                         #
@@ -57,6 +59,10 @@ Internet:
   - sensor.speedtest_ping 
   - sensor.speedtest_upload
   - sensor.speedtest_download
+
+#Switches:
+#  entities:
+#    - switch.lyric_hold
 
 Lights:
   entities:

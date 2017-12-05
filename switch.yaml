@@ -1,13 +1,17 @@
-#switch:
+#switch.yaml
   - platform: rpi_gpio
     ports:
       17: CPU Fan 
       18: PIR Office
-#  - platform: command_line
-#    switches:
-# turn off the annoying disco light on the zwave stick
-#      aeotec_zstick_disco_light:
-#        friendly_name: 'Aeotec Z-Stick Disco Light'
-# these commands dont seem to work
-#        command_on: 'echo -e -n "\x01\x08\x00\xF2\x51\x01\x01\x05\x01\x50" > /dev/serial/by-id/usb-0658_0200'
-#        command_off: 'echo -e -n "\x01\x08\x00\xF2\x51\x01\x00\x05\x01\x51" > /dev/serial/by-id/usb-0658_0200'
+
+  - platform: template
+    switches:
+      lyric_hold:
+        friendly_name: Lyric Hold
+        value_template: "{{(states.climate.lyric.attributes|default({})).hold_mode|default('NoHold') == 'PermanentHold'}}"
+        turn_on:
+          - service: homeassistant.turn_on
+            entity_id: script.lyric_hold_on
+        turn_off:
+          - service: homeassistant.turn_on
+            entity_id: script.lyric_hold_off

@@ -1,7 +1,24 @@
-#owntracks_update:
-#  sequence:
-#    - service: mqtt.publish
-#      data:
-#        topic: owntracks/home/jfNote5/cmd 
-#        payload: '{"_type":"cmd","action":"reportLocation"}"'
-restart_ha: !include scripts/restart_ha.yaml
+  restart_ha: !include scripts/restart_ha.yaml
+  lyric_hold_on:
+    alias: 'Lyric hold on'
+    sequence:
+      - service: climate.set_temperature
+        data_template:
+          entity_id: climate.
+          temperature: >-
+            {%- if states.input_select.hvacmode.state == 'heat' -%}
+              66
+            {%- else -%}
+              83
+            {%- endif -%}
+      - service: climate.set_hold_mode
+        data:
+          entity_id: climate.lyric
+          hold_mode: 'PermanentHold'
+
+  lyric_hold_off:
+    alias: 'Lyric hold off'
+    sequence:
+      - service: climate.lyric_resume_program
+        data:
+          entity_id: climate.lyric

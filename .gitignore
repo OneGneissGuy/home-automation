@@ -1,10 +1,23 @@
-secrets.yaml
-known_devices.yaml
-customizations/devices.yaml
-*.log
-*.db
-*.HA_VERSION
+# Python cache
+__pycache__
+*.pyc
+
+# Other
 *.uuid
-zwcfg*.xml
-*OZW*.txt
+*.conf
+*.db
+*.db-journal
+*.log
+*.noload
+*.txt
 *.sqlite
+*.xml
+*.backup
+*OZW*.txt
+*lyric*.json
+
+# Files
+customizations/devices.yaml
+known_devices.yaml
+secrets.yaml
+

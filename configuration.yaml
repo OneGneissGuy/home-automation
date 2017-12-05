@@ -48,9 +48,9 @@ conversation:
 #logbook:
 logger:
   default: error
-  logs:
-    custom_components.lyric: debug
-    custom_components.climate.lyric: debug
+#  logs:
+#    custom_components.lyric: debug
+#    custom_components.climate.lyric: debug
 # Enables a map showing the location of tracked devices
 map:
 
@@ -73,14 +73,15 @@ notify:
 # armcrest: !include armcrest.yaml
 # lights: !include lights.yaml
 # climate: !include climate.yaml
+# climate: !include_dir_list climate.yaml
+
 frontend: !include frontend.yaml
 automation: !include automation.yaml
 camera: !include camera.yaml
 device_tracker: !include device_tracker.yaml
 group: !include group.yaml 
-# lyric: !include lyric_t5.yaml
+lyric: !include lyric_t5.yaml
 mqtt: !include mqtt.yaml
-# notify: !include notify.yaml
 script: !include script.yaml
 sensor: !include sensor.yaml
 switch: !include switch.yaml

@@ -1,17 +1,10 @@
-#camera
-#- platform: generic
-#  name: ISS
-#  still_image_url: https://maps.googleapis.com/maps/api/staticmap?center={{ states.binary_sensor.iss.attributes.lat }},{{ states.binary_sensor.iss.attributes.long }}&zoom=5&size=500x500&maptype=roadmap&markers=color:blue%7Clabel:P%7C{{ states.binary_sensor.iss.attributes.lat }},{{ states.binary_sensor.iss.attributes.long }}
-#  limit_refetch_to_url_change: true
+# camera.yaml
  - platform: generic
    name: porch
    still_image_url: !secret camera_porch_url
-# - platform: generic
-#   name: Norcal doppler
-#   still_image_url: https://vortex.accuweather.com/adc2010/images/radar/610x480-overlay.gif
-# - platform: generic
-#   name: NWS Norcal doppler
-#   still_image_url: https://radar.weather.gov/Legend/N0R/DAX_N0R_Legend_0.gif
  - platform: generic
    name: doppler
    still_image_url: https://icons.wxug.com/data/weather-maps/radar/united-states/reno-nevada-region-current-radar.gif   
+ - platform: generic
+   name: worldtime
+   still_image_url: https://imgs.xkcd.com/comics/now.png

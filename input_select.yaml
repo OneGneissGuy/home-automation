@@ -1,0 +1,16 @@
+  hvacmode:
+    name: HVAC Mode
+    options:
+      - heat
+      - cool
+
+  current_theme:
+    name: 'Current Theme'
+    options:
+     - 'default'
+     - 'teal'
+     - 'darkorange'
+     - 'darkred'
+     - 'darkcyan'
+    initial: 'default'
+    icon: 'mdi:palette'

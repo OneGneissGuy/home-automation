@@ -78,6 +78,9 @@ switch.deck_light_switch:
   emulated_hue_name: "back lights"
 switch.pir_office:
   icon: mdi:led-outline
+#climate.lyric:
+#  friendly_name: Lyric_Thermostat
+#  entity_picture: https://images-na.ssl-images-amazon.com/images/G/01/aplusautomation/vendorimages/f48f035a-f073-458c-8777-eac34ddc6c33.jpg._CB278656136__SR285,285_.jpg
 # TRACKED DEVICES
 device_tracker.jf_note5:
   icon: mdi:account-location

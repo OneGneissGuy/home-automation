@@ -16,7 +16,13 @@
     command: cat /sys/class/thermal/thermal_zone0/temp
     unit_of_measurement: 'F'
     value_template: '{{ (value|int / 1000 * 1.8 + 32)|round(1) }}'
-# speedtest
+
+  - platform: template
+    sensors:
+      kona_food:
+        value_template: '{% if is_state("input_boolean.dog_needs_food", "on") %}yes{% else %}no{% endif %}'
+        friendly_name: 'Kona Needs Food?'
+# Internets speedtest
 
   - platform: speedtest
     minute: 30
