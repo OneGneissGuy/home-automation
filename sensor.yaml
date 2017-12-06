@@ -100,6 +100,31 @@
      - humidity
      - pressure
      - rain
+  - platform: darksky
+    api_key: !secret darksky_api_key
+    monitored_conditions:
+      - summary
+      - temperature
+      - icon
+    update_interval:
+      minutes: 5
+
+  - platform: crimereports
+    name: local_crime
+    radius: 10000
+    latitude: !secret home_latitude
+    longitude: !secret home_longitude
+    include: 
+     - Alarm
+     - Arson
+     - Assault
+     - Assault with Deadly Weapon
+     - Breaking & Entering
+     - Death
+     - Drugs
+     - Fire
+     - Homicide
+     - Kidnapping
 
 #Fitbit
 #  - platform: fitbit

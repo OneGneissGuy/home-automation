@@ -12,7 +12,7 @@ default_view:
   - camera.porch
   - group.links 
   - climate.lyric
-  - switch.lyric_hold
+  - group.switches
 Climate:
   view: yes
   icon: mdi:weather-cloudy
@@ -32,6 +32,7 @@ Other:
     - group.Date
     - switch.pir_office
     # - camera.worldtime
+    - sensor.local_crime
 ############################################################
 #                                                          #
 #                  Entities Groups                         #
@@ -55,15 +56,15 @@ System Monitor:
 
 Internet:
   entities:
-  - sensor.external_ip
-  - sensor.speedtest_ping 
-  - sensor.speedtest_upload
-  - sensor.speedtest_download
+   - sensor.external_ip
+   - sensor.speedtest_ping 
+   - sensor.speedtest_upload
+   - sensor.speedtest_download
 
-#Switches:
-#  entities:
-#    - switch.lyric_hold
-
+Switches:
+  entities:
+   - switch.lyric_hold
+   - switch.sound_machine
 Lights:
   entities:
    - switch.office_light
@@ -72,18 +73,18 @@ Lights:
    - switch.deck_light_switch
 Shed:
   entities:
-    - sensor.shed_temperature
-    - sensor.shed_humidity
-    - sensor.shed_pressure
+   - sensor.shed_temperature
+   - sensor.shed_humidity
+   - sensor.shed_pressure
 Weather:
    entities:
-    - sensor.owm_forecast
-    - sensor.owm_condition
-    - sensor.owm_temperature
-    - sensor.owm_humidity
-    - sensor.owm_pressure
-    - sensor.owm_wind_speed
-    - camera.doppler
+   - sensor.owm_forecast
+   - sensor.owm_condition
+   - sensor.owm_temperature
+   - sensor.owm_humidity
+   - sensor.owm_pressure
+   - sensor.owm_wind_speed
+   - camera.doppler
 
 People:
   name: people
