@@ -15,7 +15,7 @@ __pycache__
 *.backup
 *OZW*.txt
 *lyric*.json
-
+*.xml
 
 # Files
 customizations/devices.yaml

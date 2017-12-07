@@ -1,1 +1,23 @@
-{"18": "switch.deck_light_switch", "14": "switch.porch_lights_switch", "16": "group.all_scripts", "3": "group.all_devices", "2": "group.internet", "6": "switch.cpu_fan", "10": "switch.pir_office", "17": "group.weather", "12": "switch.office_light", "7": "group.system_monitor", "1": "group.lights", "11": "group.links", "15": "group.all_switches", "4": "group.scripts", "19": "switch.aeotec_zstick_disco_light", "8": "switch.christmas_tree", "13": "group.shed", "9": "group.all_automations", "5": "group.date"}
+{
+    "1": "group.lights",
+    "10": "switch.pir_office",
+    "11": "group.links",
+    "12": "switch.office_light",
+    "13": "group.shed",
+    "14": "switch.porch_lights_switch",
+    "15": "group.all_switches",
+    "16": "group.all_scripts",
+    "17": "group.weather",
+    "18": "switch.deck_light_switch",
+    "19": "switch.aeotec_zstick_disco_light",
+    "2": "group.internet",
+    "20": "switch.lyric_hold",
+    "21": "switch.sound_machine",
+    "3": "group.all_devices",
+    "4": "group.scripts",
+    "5": "group.date",
+    "6": "switch.cpu_fan",
+    "7": "group.system_monitor",
+    "8": "switch.christmas_tree",
+    "9": "group.all_automations"
+}

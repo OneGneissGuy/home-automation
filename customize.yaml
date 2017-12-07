@@ -60,6 +60,10 @@ sensor.ha_last_restart:
 sensor.external_ip:
   friendly_name: WAN IP Address
   icon: mdi:wan
+group.crime:
+  icon: 'mdi:ambulance'
+sensor.crimereports:
+  icon: 'mdi:ambulance'
 # SWITCHES
 switch.cpu_fan:
   friendly_name: CPU Cooling Fan

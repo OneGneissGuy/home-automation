@@ -20,7 +20,6 @@ Climate:
   - group.Weather
   - group.shed
   - climate.lyric
-
 Other:
   icon: mdi:desktop-classic
   name: Other
@@ -32,7 +31,6 @@ Other:
     - group.Date
     - switch.pir_office
     # - camera.worldtime
-    - sensor.local_crime
 ############################################################
 #                                                          #
 #                  Entities Groups                         #
@@ -84,8 +82,12 @@ Weather:
    - sensor.owm_humidity
    - sensor.owm_pressure
    - sensor.owm_wind_speed
+   - sensor.moon
+   - darksky.summary
    - camera.doppler
-
+Crime:
+    entities: 
+    - sensor.crimereports
 People:
   name: people
   icon: mdi:account-multiple

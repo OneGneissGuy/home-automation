@@ -60,12 +60,14 @@ sun:
 # Text to speech
 tts:
   - platform: google
+
 zwave:
    usb_path: /dev/ttyACM0
    network_key: !secret zwave_ntwk_key
 emulated_hue: !include hue.yaml
+
 notify:
-  - name: simple_notifier
+  - name: mypushbullet
     platform: pushbullet
     api_key: !secret pushbullet_token
 

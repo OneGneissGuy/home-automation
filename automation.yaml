@@ -20,18 +20,17 @@
     action:
      - service: homeassistant.turn_off
        entity_id: switch.porch_lights_switch
-#sensor based warnings
-  - alias: Freeze Warning
+### OTHER AUTOMATIONS
+  - alias: Crime Report Incident
+    initial_state: True
     trigger:
-      platform: numeric_state
-      entity_id: sensor.owm_temperature
-      below: 32
+       - platform: event
+         event_type: crimereports_incident
     action:
-     - service: notify.pushbullet
-       data_template:
-         title: "freeze warning"
-         target: "device/Samsung SM-N920V"
-         message: "Impending freeze.Cover the plants!"
+       - service: notify.mypushbullet
+         data_template:
+           message: >
+            {{ trigger.event.data.type }}, {{ trigger.event.data.description }}, occured at {{ trigger.event.data.location | title }} {{ (as_timestamp(trigger.event.data.timestamp) | int | timestamp_custom('%A at %I:%M %P')) | replace(' 0', ' ') }}.
 #################################################################
 ## HASS Related
 #################################################################
