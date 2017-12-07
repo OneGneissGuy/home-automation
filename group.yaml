@@ -13,6 +13,7 @@ default_view:
   - group.links 
   - climate.lyric
   - group.switches
+  - group.crime
 Climate:
   view: yes
   icon: mdi:weather-cloudy
@@ -29,7 +30,7 @@ Other:
     - group.internet
     - group.links
     - group.Date
-    - switch.pir_office
+    # - switch.pir_office
     # - camera.worldtime
 ############################################################
 #                                                          #
@@ -83,7 +84,9 @@ Weather:
    - sensor.owm_pressure
    - sensor.owm_wind_speed
    - sensor.moon
-   - darksky.summary
+   - sensor.dark_sky_icon
+   - sensor.dark_sky_summary
+   - sensor.dark_sky_temperature
    - camera.doppler
 Crime:
     entities: 

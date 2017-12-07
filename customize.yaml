@@ -1,5 +1,12 @@
 #icons - https://materialdesignicons.com/
 # SENSORS
+sensor.dark_sky_icon:
+  friendly_name: Weather forecast
+sensor.dark_sky_summary:
+  friendly_name: Weather summary
+sensor.dark_sky_temperature:
+  friendly_name: DarkSky_temperature
+  icon: mdi:thermometer
 sensor.shed_temperature:
   icon: mdi:thermometer
 sensor.shed_humidity:
@@ -67,6 +74,8 @@ sensor.crimereports:
 # SWITCHES
 switch.cpu_fan:
   friendly_name: CPU Cooling Fan
+  icon: mdi:fan
+switch.sound_machine:
   icon: mdi:fan
 switch.office_light:
   icon: mdi:lightbulb
