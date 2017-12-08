@@ -30,8 +30,7 @@ Other:
     - group.internet
     - group.links
     - group.Date
-    # - switch.pir_office
-    # - camera.worldtime
+
 ############################################################
 #                                                          #
 #                  Entities Groups                         #
@@ -44,9 +43,6 @@ System Monitor:
     - sensor.cpu_temperature
     - sensor.ram_available
     - sensor.disk_free_
-#    - sensor.link_quality
-#    - sensor.signal_strength
-#    - sensor.ipv4_address_wlan0
     - sensor.uptime
     - sensor.last_boot
     - sensor.since_last_boot
@@ -66,10 +62,13 @@ Switches:
    - switch.sound_machine
 Lights:
   entities:
-   - switch.office_light
    - switch.christmas_tree
    - switch.porch_lights_switch
    - switch.deck_light_switch
+   - switch.office_light
+   - light.master_light
+   - light.guest_light
+   - light.hallway_light
 Shed:
   entities:
    - sensor.shed_temperature

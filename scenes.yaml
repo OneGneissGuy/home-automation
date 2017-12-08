@@ -1,0 +1,18 @@
+  - name: Bedtime
+    entities:
+      light.master_light:
+        state: off
+      light.hallway_light:
+        state: off
+      switch.office_light:
+        state: off
+        state: off
+      switch.sound_machine:
+        state: on
+  - name: Wakeup
+    entities:
+      light.master_light:
+        state: on
+        brightness: 25
+      switch.sound_machine:
+        state: off

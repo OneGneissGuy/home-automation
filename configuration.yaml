@@ -84,6 +84,7 @@ device_tracker: !include device_tracker.yaml
 group: !include group.yaml 
 lyric: !include lyric_t5.yaml
 mqtt: !include mqtt.yaml
+scene: !include scenes.yaml
 script: !include script.yaml
 sensor: !include sensor.yaml
 switch: !include switch.yaml

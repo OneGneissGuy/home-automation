@@ -4,8 +4,6 @@ sensor.dark_sky_icon:
   friendly_name: Weather forecast
 sensor.dark_sky_summary:
   friendly_name: Weather summary
-sensor.dark_sky_temperature:
-  friendly_name: DarkSky_temperature
   icon: mdi:thermometer
 sensor.shed_temperature:
   icon: mdi:thermometer
@@ -89,6 +87,15 @@ switch.porch_lights_switch:
 switch.deck_light_switch:
   icon: mdi:lightbulb
   emulated_hue_name: "back lights"
+light.guest_light:
+  icon: mdi:lightbulb
+  #emulated_hue_name: "guest bedroom light"
+light.master_light:
+  icon: mdi:lightbulb
+  #emulated_hue_name: "master bedroom light"
+light.hallway_light:
+  icon: mdi:lightbulb
+  emulated_hue_name: "hall light"
 switch.pir_office:
   icon: mdi:led-outline
 #climate.lyric:
