@@ -1,6 +1,7 @@
 
 # My Home Assistant Setup #
-
+## 0. Setup
+- Setup your Raspberry Pi like [this](https://hackernoon.com/raspberry-pi-headless-install-462ccabd75d0)
 ## 1. Installed devices
 - [Raspberry Pi 3 model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)
 - [Z-Stick Gen5](https://aeotec.com/z-wave-usb-stick)
@@ -9,6 +10,7 @@
 - [Adafruit Feather HUZZAH ESP8266](https://www.adafruit.com/product/2821)
 - [Adafruit BME280 I2C or SPI Temperature Humidity Pressure Sensor](https://www.adafruit.com/product/2652)
 - [Amcrest IP2M-842 HD WiFi Camera](https://amcrest.com/amcrest-1080p-bullt-wifi-video-security-ip-camera-pt-ip2m-842-white.html)
+- [GoControl Z-Wave Dimmable LED Light Bulb, LB60Z-1](https://www.amazon.com/gp/product/B00PJH16UC/ref=oh_aui_detailpage_o00_s01?ie=UTF8&psc=1)
 ## 2. Installed software
 - [Hassbian](https://home-assistant.io/docs/installation/hassbian/)
 - [DuckDNS](https://www.duckdns.org/install.jsp) for pi
