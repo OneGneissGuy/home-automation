@@ -6,6 +6,7 @@
         state: off
       switch.office_light:
         state: off
+      switch.deck_light_switch:
         state: off
       switch.sound_machine:
         state: on
