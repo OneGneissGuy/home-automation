@@ -14,6 +14,7 @@ default_view:
   - climate.lyric
   - group.switches
   - group.crime
+  - group.Date
 Climate:
   view: yes
   icon: mdi:weather-cloudy
@@ -30,7 +31,19 @@ Other:
     - group.internet
     - group.links
     - group.Date
-
+People:
+  name: people
+  icon: mdi:account-multiple
+  view: yes
+  entities:
+    - group.Tracking
+Settings:
+  view: yes
+  name: Settings
+  icon: mdi:settings
+  entities:
+   - switch.aeotec_zstick_disco_light
+   - group.scripts
 ############################################################
 #                                                          #
 #                  Entities Groups                         #
@@ -39,8 +52,8 @@ Other:
 System Monitor:
   entities:
     - switch.cpu_fan
-    - sensor.cpu_used
     - sensor.cpu_temperature
+    - sensor.cpu_used
     - sensor.ram_available
     - sensor.disk_free_
     - sensor.uptime
@@ -52,6 +65,7 @@ System Monitor:
 Internet:
   entities:
    - sensor.external_ip
+   - sensor.ipv4_address
    - sensor.speedtest_ping 
    - sensor.speedtest_upload
    - sensor.speedtest_download
@@ -70,6 +84,30 @@ Lights:
    - light.hallway_light_level
    - light.guest_light_level
 
+Tracking:
+  entities:
+    - device_tracker.shmoopy_galaxy
+    - sensor.shmoopy_evening_commute
+    - sensor.shmoopy_morning_commute
+    - sensor.shmoopy_to_home
+    - device_tracker.jf_note5
+    - sensor.jf_morning_commute
+    - sensor.jf_evening_commute
+    - sensor.jf_to_home
+Date:
+  entities:
+   - sensor.date
+   - sensor.time
+
+Scripts:
+  - script.restart_ha
+Links:
+  - weblink.router
+  - weblink.news
+  - weblink.traffic
+Crime:
+    entities: 
+    - sensor.crimereports
 Shed:
   entities:
    - sensor.shed_temperature
@@ -77,6 +115,8 @@ Shed:
    - sensor.shed_pressure
 Weather:
    entities:
+   - sensor.dark_sky_daily_summary
+   - sensor.dark_sky_hourly_summary
    - sensor.owm_forecast
    - sensor.owm_condition
    - sensor.owm_temperature
@@ -84,35 +124,7 @@ Weather:
    - sensor.owm_pressure
    - sensor.owm_wind_speed
    - sensor.moon
-   - sensor.dark_sky_icon
-   - sensor.dark_sky_summary
-   - sensor.dark_sky_temperature
+   # - sensor.dark_sky_icon
+   # - sensor.dark_sky_summary
+   # - sensor.dark_sky_temperature
    - camera.doppler
-Crime:
-    entities: 
-    - sensor.crimereports
-People:
-  name: people
-  icon: mdi:account-multiple
-  view: yes
-  entities:
-   - device_tracker.jf_note5
-   - device_tracker.shmoopy_galaxy
-
-Date:
-  entities:
-   - sensor.date
-   - sensor.time
-Settings:
-  view: yes
-  name: Settings
-  icon: mdi:settings
-  entities:
-   - switch.aeotec_zstick_disco_light
-   - group.scripts
-Scripts:
-  - script.restart_ha
-Links:
-  - weblink.router
-  - weblink.news
-  - weblink.traffic

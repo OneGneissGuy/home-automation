@@ -14,7 +14,7 @@
 ### SYSTEM ###  
 # Internets speedtest
   - platform: speedtest
-# Test every six hours, on the hour
+# Test connection every six hours, on the hour
     minute: 0
     hour: 
       - 0
@@ -68,7 +68,7 @@
     state_topic: "sensor/temperature"
     name: "Shed Temperature"
     qos: 0
-    unit_of_measurement: "ยบF"
+    unit_of_measurement: "F"
   - platform: mqtt
     state_topic: "sensor/pressure"
     name: "Shed Pressure"
@@ -79,7 +79,7 @@
   - platform: openweathermap
     api_key: !secret owm_key
     minute:
-      - 5
+      - 15
     monitored_conditions:
      - weather
      - temperature
@@ -114,5 +114,33 @@
      - Homicide
      - Kidnapping
 
-
-
+  - platform: google_travel_time
+    name: Shmoopy Morning Commute
+    api_key: !secret google_key
+    origin: zone.home
+    destination: zone.shmoopy_work
+  - platform: google_travel_time
+    name: Shmoopy Evening Commute
+    api_key: !secret google_key
+    origin: zone.shmoopy_work
+    destination: zone.home
+  - platform: google_travel_time
+    name: Shmoopy to Home
+    api_key: !secret google_key
+    origin: device_tracker.shmoopy_galaxy
+    destination: zone.home
+  - platform: google_travel_time
+    name: JF Morning Commute
+    api_key: !secret google_key
+    origin: zone.home
+    destination: zone.jf_work
+  - platform: google_travel_time
+    name: JF Evening Commute
+    api_key: !secret google_key
+    origin: zone.jf_work
+    destination: zone.home
+  - platform: google_travel_time
+    name: JF to Home
+    api_key: !secret google_key
+    origin: device_tracker.jf_note5
+    destination: zone.home

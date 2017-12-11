@@ -8,7 +8,7 @@
     latitude: !secret jf_work_latitude
     longitude: !secret jf_work_longitude
     radius: 500
-  - name: Stacy Work
+  - name: Shmoopy Work
     latitude: !secret shmoopy_work_latitude
     longitude: !secret shmoopy_work_longitude
     radius: 500

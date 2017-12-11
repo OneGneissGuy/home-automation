@@ -1,5 +1,5 @@
 #icons - https://materialdesignicons.com/
-# SENSORS
+### Environment ###
 sensor.dark_sky_icon:
   friendly_name: Weather forecast
 sensor.dark_sky_summary:
@@ -27,6 +27,7 @@ sensor.owm_forecast:
   icon: mdi:weather-cloudy
 sensor.owm_condition:
   icon: mdi:weather-cloudy
+### System Info Sensor ###
 sensor.speedtest_ping:
   friendly_name: Ping Speed
   icon: mdi:speedometer
@@ -36,7 +37,6 @@ sensor.speedtest_upload:
 sensor.speedtest_download:
   friendly_name: Download Speed
   icon: mdi:download
-# System Info Sensor
 sensor.cpu_speed:
   friendly_name: CPU Speed
   icon: mdi:speedometer
@@ -46,16 +46,13 @@ sensor.disk_free_:
   friendly_name: Disk Free Space
 sensor.ram_free:
   friendly_name: Available Memory
-sensor.ipv4_address_wlan0:
+sensor.ipv4_address:
   friendly_name: Local IP Address
+  icon: mdi:server-network
 sensor.last_boot:
   friendly_name: Last Boot
 sensor.since_last_boot:
   friendly_name: Up Time
-#sensor.signal_strength:
-#  icon: mdi:signal
-#sensor.link_quality:
-#  icon: mdi:link-variant
 sensor.ha_installed_version:
   icon: mdi:home-assistant
 sensor.ha_current_version:
@@ -69,7 +66,7 @@ group.crime:
   icon: 'mdi:ambulance'
 sensor.crimereports:
   icon: 'mdi:ambulance'
-# SWITCHES
+### SWITCHES ###
 switch.cpu_fan:
   friendly_name: CPU Cooling Fan
   icon: mdi:fan
@@ -106,3 +103,15 @@ device_tracker.jf_note5:
   icon: mdi:account-location
 device_tracker.shmoopy_galaxy:
   icon: mdi:account-location
+sensor.shmoopy_evening_commute:
+  icon: mdi:car-side
+sensor.shmoopy_morning_commute:
+  icon: mdi:car-side
+sensor.shmoopy_to_home:
+  icon: mdi:car-side
+sensor.jf_morning_commute:
+  icon: mdi:car-sports
+sensor.jf_evening_commute:
+  icon: mdi:car-sports
+sensor.jf_to_home:
+  icon: mdi:car-sports

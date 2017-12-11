@@ -1,13 +1,13 @@
 {
-    "1": "switch.lyric_hold",
-    "10": "switch.office_light",
-    "11": "switch.sound_machine",
+    "1": "switch.deck_light_switch",
+    "10": "switch.sound_machine",
+    "11": "switch.porch_lights_switch",
     "2": "light.guest_light_level",
-    "3": "light.hallway_light_level",
-    "4": "switch.cpu_fan",
-    "5": "switch.pir_office",
-    "6": "switch.deck_light_switch",
-    "7": "switch.porch_lights_switch",
+    "3": "switch.cpu_fan",
+    "4": "switch.lyric_hold",
+    "5": "light.hallway_light_level",
+    "6": "switch.office_light",
+    "7": "switch.pir_office",
     "8": "light.master_light_level",
     "9": "switch.christmas_tree"
 }
