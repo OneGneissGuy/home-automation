@@ -66,9 +66,10 @@ Lights:
    - switch.porch_lights_switch
    - switch.deck_light_switch
    - switch.office_light
-   - light.master_light
-   - light.guest_light
-   - light.hallway_light
+   - light.master_light_level
+   - light.hallway_light_level
+   - light.guest_light_level
+
 Shed:
   entities:
    - sensor.shed_temperature
@@ -97,6 +98,7 @@ People:
   entities:
    - device_tracker.jf_note5
    - device_tracker.shmoopy_galaxy
+
 Date:
   entities:
    - sensor.date
