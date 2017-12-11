@@ -14,8 +14,9 @@
 ### SYSTEM ###  
 # Internets speedtest
   - platform: speedtest
-    minute: 30
-    hour:
+# Test every six hours, on the hour
+    minute: 0
+    hour: 
       - 0
       - 6
       - 12
@@ -31,8 +32,8 @@
         arg: /
       - type: memory_free
       - type: processor_use
-#      - type: ipv4_address
-#        arg: wlan0
+      - type: ipv4_address
+        arg: enxb827eb54f44e
       - type: last_boot
       - type: since_last_boot
 ### REST ###
@@ -56,19 +57,6 @@
     command: /srv/homeassistant/bin/hass --version
     scan_interval: 86400
 
-#  - platform: command_line
-#    name: Signal Strength
-#    #command: "iwconfig wlan0 | grep -i signal"
-#    command: "ifconfig enxb827eb54f44e
-#    value_template: >
-#      {{ value.split(' ')[4].split('=')[1][1:] }}
-#    unit_of_measurement: 'dBm'
-
-#  - platform: command_line
-#    name: Link Quality
-#    command: "iwconfig wlan0 | grep -i signal"
-#    value_template: >
-#     {{ value.split(' ')[1].split('=')[1]  }}
 ### MQTT ###
 # Arduino based mqtt sensor data
   - platform: mqtt
@@ -80,19 +68,18 @@
     state_topic: "sensor/temperature"
     name: "Shed Temperature"
     qos: 0
-    unit_of_measurement: "ºF"
+    unit_of_measurement: "ยบF"
   - platform: mqtt
     state_topic: "sensor/pressure"
     name: "Shed Pressure"
     qos: 0
     unit_of_measurement: "in Hg"
-### OTHER ###
+### WEATHER ETC. ###
 # Local weather report from openweathermap
   - platform: openweathermap
-    minute:
-    - 0
     api_key: !secret owm_key
-    forecast: 1
+    minute:
+      - 5
     monitored_conditions:
      - weather
      - temperature
@@ -100,19 +87,19 @@
      - humidity
      - pressure
      - rain
+     - clouds
   - platform: darksky
     api_key: !secret darksky_api_key
     monitored_conditions:
-      - summary    
-      - icon
-    forecast:
-      - temperature_min
-    update_interval:
-      minutes: 5
-
+      - wind_speed
+      - cloud_cover
+      - hourly_summary
+      - daily_summary
+  - platform: moon
+### OTHER ###
   - platform: crimereports
     name: local_crime
-    radius: 10000
+    radius: 100000
     latitude: !secret home_latitude
     longitude: !secret home_longitude
     include: 
@@ -127,14 +114,5 @@
      - Homicide
      - Kidnapping
 
-  - platform: yr
-  - platform: moon
-#Fitbit
-#  - platform: fitbit
-#    monitored_resources:
-#    - activities/calories
-#    - activities/distance
-#    - activities/heart
-#    - sleep/startTime
-#    - sleep/timeInBed
+
 
