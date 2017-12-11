@@ -87,13 +87,13 @@ switch.porch_lights_switch:
 switch.deck_light_switch:
   icon: mdi:lightbulb
   emulated_hue_name: "back lights"
-light.guest_light:
+light.guest_light_level:
   icon: mdi:lightbulb
-  #emulated_hue_name: "guest bedroom light"
-light.master_light:
+  emulated_hue_name: "guest bedroom light"
+light.master_light_level:
   icon: mdi:lightbulb
-  #emulated_hue_name: "master bedroom light"
-light.hallway_light:
+  emulated_hue_name: "master bedroom light"
+light.hallway_light_level:
   icon: mdi:lightbulb
   emulated_hue_name: "hall light"
 switch.pir_office:
