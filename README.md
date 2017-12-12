@@ -13,8 +13,6 @@
 - [GoControl Z-Wave Dimmable LED Light Bulb, LB60Z-1](https://www.amazon.com/gp/product/B00PJH16UC/ref=oh_aui_detailpage_o00_s01?ie=UTF8&psc=1)
 ## 2. Installed software
 - [Hassbian](https://home-assistant.io/docs/installation/hassbian/)
-- [DuckDNS](https://www.duckdns.org/install.jsp) for pi
-- [Let's Encrypt](https://github.com/letsencrypt)
 
 ## 3. Useful commands
 * Config the raspberry pi (things like keyboard layout, timezone, etc.)

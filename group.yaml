@@ -37,6 +37,13 @@ People:
   view: yes
   entities:
     - group.Tracking
+Health:
+  name: Health
+  icon: mdi:medical-bag
+  view: yes
+  entities:
+    - group.Cold_and_Flu
+    - group.Pollen
 Settings:
   view: yes
   name: Settings
@@ -65,7 +72,7 @@ System Monitor:
 Internet:
   entities:
    - sensor.external_ip
-   - sensor.ipv4_address
+   - sensor.ipv4_address_enxb827eb54f44e
    - sensor.speedtest_ping 
    - sensor.speedtest_upload
    - sensor.speedtest_download
@@ -128,3 +135,20 @@ Weather:
    # - sensor.dark_sky_summary
    # - sensor.dark_sky_temperature
    - camera.doppler
+Cold_and_Flu:
+  entities:
+    - sensor.cold__flu_percentage
+    - sensor.cold_flu_risk
+Pollen:
+  entities:
+    - sensor.pollen_index
+    - sensor.pollen_level
+    - sensor.top_allergen_1      
+    - sensor.top_allergen_2      
+    - sensor.top_allergen_3
+    - sensor.pollen_trend
+    - sensor.pollen_outlook    
+    - sensor.pollen_season
+    - sensor.pollen_index_forecast
+    - sensor.pollen_level_forecast
+      
