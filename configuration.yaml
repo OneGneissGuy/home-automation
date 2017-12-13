@@ -64,7 +64,9 @@ tts:
 zwave:
    usb_path: /dev/ttyACM0
    network_key: !secret zwave_ntwk_key
+   autoheal: false
 emulated_hue: !include hue.yaml
+
 
 notify:
   - name: mypushbullet
