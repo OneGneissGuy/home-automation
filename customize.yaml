@@ -9,6 +9,8 @@ sensor.shed_temperature:
   icon: mdi:thermometer
 sensor.shed_humidity:
   icon: mdi:water-percent
+sensor.shed_motion:
+  icon: mdi:camera-switch
 sensor.owm_temperature:
   icon: mdi:thermometer
 sensor.owm_humidity:
@@ -108,6 +110,9 @@ switch.porch_lights_switch:
 switch.deck_light_switch:
   icon: mdi:lightbulb
   emulated_hue_name: "back lights"
+switch.shed_light_switch:
+  icon: mdi:lightbulb
+  emulated_hue_name: "shed light"
 light.guest_light_level:
   icon: mdi:lightbulb
   emulated_hue_name: "guest bedroom light"

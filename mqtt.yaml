@@ -1,13 +1,12 @@
-# MQTT broker
-#mqtt:
+#mqtt.yaml
 #rpi home
-#  broker: core-mosquitto
-#  username: !secret mqtt_broker_username
-#  password: !secret mqtt_broker_password
+ broker: 127.0.0.1
+ port: 1883
+ username: !secret mqtt_broker_username
+ password: !secret mqtt_broker_password
 #cloudmqtt
-#mqtt:
-broker: !secret cloud_mqtt_broker
-port: !secret cloud_mqtt_port
-client_id: "home-assistant"
-username: !secret cloud_mqtt_username
-password: !secret cloud_mqtt_password
+# port: !secret cloud_mqtt_port
+# client_id: "home-assistant"
+# username: !secret cloud_mqtt_username
+# broker: !secret cloud_mqtt_broker
+# password: !secret cloud_mqtt_password

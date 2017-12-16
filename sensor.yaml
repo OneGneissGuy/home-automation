@@ -62,19 +62,34 @@
   - platform: mqtt
     state_topic: "sensor/humidity"
     name: "Shed Humidity"
-    qos: 0
     unit_of_measurement: "%"
+    #value_template: '{{ value_json.humidity }}'
   - platform: mqtt
     state_topic: "sensor/temperature"
     name: "Shed Temperature"
-    qos: 0
-    unit_of_measurement: "F"
+    unit_of_measurement: "°F"
+    #value_template: '{{ value_json.temperature }}'
   - platform: mqtt
     state_topic: "sensor/pressure"
     name: "Shed Pressure"
-    qos: 0
+    #value_template: '{{ value_json.pressure }}'
     unit_of_measurement: "in Hg"
-### WEATHER ETC. ###
+  - platform: mqtt
+    state_topic: "sensor/motion"
+    name: "Shed Motion"
+    #value_template: '{{ value_json.motion }}'
+# owntracks battery levels
+  - platform: mqtt
+    state_topic: "owntracks/jf/note5"
+    name: "JF Phone Battery "
+    unit_of_measurement: "%"
+    value_template: '{{ value_json.batt }}'
+  - platform: mqtt
+    state_topic: "owntracks/shmoopy/galaxy"
+    name: "Shmoopy Phone Battery "
+    unit_of_measurement: "%"
+    value_template: '{{ value_json.batt }}'
+### WEATHER ETC. ###### WEATHER ETC. ###
 # Local weather report from openweathermap
   - platform: openweathermap
     api_key: !secret owm_key

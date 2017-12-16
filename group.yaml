@@ -83,10 +83,11 @@ Switches:
    - switch.sound_machine
 Lights:
   entities:
-   - switch.christmas_tree
    - switch.porch_lights_switch
    - switch.deck_light_switch
+   - switch.christmas_tree
    - switch.office_light
+   - switch.shed_light_switch
    - light.master_light_level
    - light.hallway_light_level
    - light.guest_light_level
@@ -94,10 +95,14 @@ Lights:
 Tracking:
   entities:
     - device_tracker.shmoopy_galaxy
+    - sensor.shmoopy_phone_battery_
     - sensor.shmoopy_evening_commute
     - sensor.shmoopy_morning_commute
     - sensor.shmoopy_to_home
     - device_tracker.jf_note5
+    - sensor.jf_phone_battery_
+
+    - sensor.jf_phone_battery_
     - sensor.jf_morning_commute
     - sensor.jf_evening_commute
     - sensor.jf_to_home
@@ -120,6 +125,8 @@ Shed:
    - sensor.shed_temperature
    - sensor.shed_humidity
    - sensor.shed_pressure
+   - switch.shed_light_switch
+   - sensor.shed_motion
 Weather:
    entities:
    - sensor.dark_sky_daily_summary

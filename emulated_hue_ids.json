@@ -2,6 +2,8 @@
     "1": "switch.deck_light_switch",
     "10": "switch.sound_machine",
     "11": "switch.porch_lights_switch",
+    "12": "switch.switch",
+    "13": "switch.shed_light_switch",
     "2": "light.guest_light_level",
     "3": "switch.cpu_fan",
     "4": "switch.lyric_hold",
