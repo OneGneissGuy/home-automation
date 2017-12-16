@@ -91,25 +91,34 @@
     value_template: '{{ value_json.batt }}'
 ### WEATHER ETC. ###### WEATHER ETC. ###
 # Local weather report from openweathermap
-  - platform: openweathermap
-    api_key: !secret owm_key
-    minute:
-      - 15
-    monitored_conditions:
-     - weather
-     - temperature
-     - wind_speed
-     - humidity
-     - pressure
-     - rain
-     - clouds
+  # - platform: openweathermap
+    # api_key: !secret owm_key
+    # minute:
+      # - 15
+    # monitored_conditions:
+     # - weather
+     # - temperature
+     # - wind_speed
+     # - humidity
+     # - pressure
+     # - rain
+     # - clouds
   - platform: darksky
     api_key: !secret darksky_api_key
     monitored_conditions:
+      - summary
+      - icon
+      - nearest_storm_distance
       - wind_speed
       - cloud_cover
       - hourly_summary
       - daily_summary
+      - temperature
+      - wind_speed
+      - humidity
+      - pressure
+      - dew_point
+      - wind_bearing
   - platform: moon
 ### OTHER ###
   - platform: crimereports

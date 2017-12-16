@@ -5,31 +5,30 @@ sensor.dark_sky_icon:
 sensor.dark_sky_summary:
   friendly_name: Weather summary
   icon: mdi:thermometer
+sensor.dark_sky_temperature:
+  friendly_name: Temperature
+sensor.dark_sky_pressure:
+  friendly_name: Pressure
+sensor.dark_sky_humidity:
+  friendly_name: Humidity
+sensor.dark_sky_dew_point:
+  friendly_name: Dew point
+sensor.dark_sky_wind_speed:
+  friendly_name: Wind speed
+sensor.dark_sky_wind_bearing:
+  friendly_name: Wind bearing
+
 sensor.shed_temperature:
   icon: mdi:thermometer
 sensor.shed_humidity:
   icon: mdi:water-percent
 sensor.shed_motion:
   icon: mdi:camera-switch
-sensor.owm_temperature:
-  icon: mdi:thermometer
-sensor.owm_humidity:
-  icon: mdi:water-percent
-sensor.owm_wind_speed:
-  icon: mdi:weather-windy
 sensor.cpu_temperature:
   icon: mdi:thermometer
+### System Info Sensor ###
 sensor.shed_pressure:
   icon: mdi:thermometer
-sensor.owm_pressure:
-  icon: mdi:thermometer
-sensor.own_rain:
-  icon: mdi:weather-rainy
-sensor.owm_forecast:
-  icon: mdi:weather-cloudy
-sensor.owm_condition:
-  icon: mdi:weather-cloudy
-### System Info Sensor ###
 sensor.speedtest_ping:
   friendly_name: Ping Speed
   icon: mdi:speedometer
