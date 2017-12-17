@@ -5,7 +5,7 @@
         value_template: >-
           {{ states.sun.sun.attributes.elevation|float > 0 }}
   - platform: mqtt
-    state_topic: "sensor/motion"
+    state_topic: "sensor/shed/motion"
     name: "Shed Motion"
     payload_on: 1
     payload_off: 0

@@ -56,21 +56,25 @@
 ### MQTT ###
 # Arduino based mqtt sensor data
   - platform: mqtt
-    state_topic: "sensor/humidity"
+    state_topic: "sensor/shed/humidity"
     name: "Shed Humidity"
     unit_of_measurement: "%"
     value_template: '{{ value | round(0) }}'
   - platform: mqtt
-    state_topic: "sensor/temperature"
+    state_topic: "sensor/shed/temperature"
     name: "Shed Temperature"
     value_template: '{{ value | round(0) }}'
     unit_of_measurement: "°F"
   - platform: mqtt
-    state_topic: "sensor/pressure"
+    state_topic: "sensor/shed/pressure"
     name: "Shed Pressure"
     unit_of_measurement: "in Hg"
     value_template: '{{ value | round(2) }}'
-
+  - platform: mqtt
+    state_topic: "sensor/shed/battery"
+    name: "Shed battery"
+    value_template: '{{ value | round(0) }}'
+    unit_of_measurement: "%"
 # owntracks battery levels
   - platform: mqtt
     state_topic: "owntracks/jf/note5"

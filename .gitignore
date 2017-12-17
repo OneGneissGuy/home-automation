@@ -22,3 +22,4 @@ customizations/devices.yaml
 known_devices.yaml
 secrets.yaml
 
+Arduino/bme280_pir_vbatt_mqtt/config.h
