@@ -79,10 +79,11 @@ notify:
 # climate: !include climate.yaml
 # climate: !include_dir_list climate.yaml
 
-frontend: !include frontend.yaml
+binary_sensor: !include binary_sensor.yaml
 automation: !include automation.yaml
 camera: !include camera.yaml
 device_tracker: !include device_tracker.yaml
+frontend: !include frontend.yaml
 group: !include group.yaml 
 lyric: !include lyric_t5.yaml
 mqtt: !include mqtt.yaml

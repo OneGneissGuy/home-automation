@@ -70,9 +70,7 @@
     name: "Shed Pressure"
     unit_of_measurement: "in Hg"
     value_template: '{{ value | round(2) }}'
-  - platform: mqtt
-    state_topic: "sensor/motion"
-    name: "Shed Motion"
+
 # owntracks battery levels
   - platform: mqtt
     state_topic: "owntracks/jf/note5"
@@ -88,16 +86,6 @@
 # Local weather report from openweathermap
   # - platform: openweathermap
     # api_key: !secret owm_key
-    # minute:
-      # - 15
-    # monitored_conditions:
-     # - weather
-     # - temperature
-     # - wind_speed
-     # - humidity
-     # - pressure
-     # - rain
-     # - clouds
   - platform: darksky
     api_key: !secret darksky_api_key
     monitored_conditions:
@@ -356,3 +344,33 @@
         friendly_name: "Dew point"
         unit_of_measurement: '°F'
         value_template: "{{ states('sensor.dark_sky_dew_point')|round(0) }}"
+  - platform: template
+    sensors:
+      ds_wind_speed_pretty:
+        friendly_name: "Wind speed"
+        unit_of_measurement: 'mph'
+        value_template: "{{ states('sensor.dark_sky_wind_speed')|round(0) }}"
+  - platform: template
+    sensors:
+      wind_dir:
+        friendly_name: 'Wind Direction'
+        value_template: >-
+         {% set wind_dir = states.sensor.dark_sky_wind_bearing.state %}
+         {% if wind_dir | float<=11 %}North
+         {% elif wind_dir | float>348 %}North
+         {% elif 11 < (wind_dir|float) <=34 %}NNE
+         {% elif 34 < (wind_dir|float) <=56 %}NE
+         {% elif 56 < (wind_dir|float) <=79 %}}ENE
+         {% elif 79 < (wind_dir|float) <=101 %}East
+         {% elif 101 < (wind_dir|float) <=124 %}ESE
+         {% elif 124 < (wind_dir|float) <=146 %}SE
+         {% elif 146 < (wind_dir|float) <=169 %}SSE
+         {% elif 169 < (wind_dir|float) <=191 %}South
+         {% elif 191 < (wind_dir|float) <=214 %}SSW
+         {% elif 214 < (wind_dir|float) <=236 %}SW
+         {% elif 236 < (wind_dir|float) <=259 %}WSW
+         {% elif 259 < (wind_dir|float) <=281 %}West
+         {% elif 281 < (wind_dir|float) <=304 %}WWN
+         {% elif 304 < (wind_dir|float) <=326 %}NW
+         {% elif 326 < (wind_dir|float) <=348 %}NNW
+         {%- endif %}

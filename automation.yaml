@@ -31,6 +31,45 @@
          data_template:
            message: >
             {{ trigger.event.data.type }}, {{ trigger.event.data.description }}, occured at {{ trigger.event.data.location | title }} {{ (as_timestamp(trigger.event.data.timestamp) | int | timestamp_custom('%A at %I:%M %P')) | replace(' 0', ' ') }}.
+  - alias: 'Shed light on motion'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.shed_motion
+        from: 'off'
+        to: 'on'
+    condition: 
+      condition: or
+      conditions:
+        - condition: sun
+          after: sunset
+          after_offset: "-0:30:00"
+        - condition: sun
+          before: sunrise
+          before_offset: "-0:30:00"
+        - condition: state
+          entity_id: sun.sun
+          state: 'below_horizon'
+        - condition: state
+          entity_id: switch.shed_light_switch
+          state: 'off'
+    action:
+      - service: homeassistant.turn_on
+        entity_id: switch.shed_light_switch
+      - service: notify.mypushbullet
+        data_template: 
+          message: "The light turned on in the shed"
+  - alias: 'Shed light off motion with delay'
+    trigger:
+      platform: state
+      entity_id: switch.shed_light_switch
+      from: 'off'
+      to: 'on'
+      for:
+        minutes: 10
+    action:
+      - service: homeassistant.turn_off
+        entity_id: switch.shed_light_switch
+
 #################################################################
 ## HASS Related
 #################################################################

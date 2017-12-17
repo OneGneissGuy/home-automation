@@ -126,7 +126,7 @@ Shed:
    - sensor.shed_humidity
    - sensor.shed_pressure
    - switch.shed_light_switch
-   - sensor.shed_motion
+   - binary_sensor.shed_motion
 Weather:
    entities:
    - sensor.dark_sky_summary
@@ -136,8 +136,9 @@ Weather:
    - sensor.ds_dew_point_pretty
    - sensor.ds_humidity_pretty
    - sensor.ds_pressure_pretty
-   - sensor.dark_sky_wind_speed
-   - sensor.dark_sky_wind_bearing
+   - sensor.ds_wind_speed_pretty
+   - sensor.wind_dir
+   #- sensor.dark_sky_wind_bearing
    - sensor.moon
    - camera.doppler
 Cold_and_Flu:
