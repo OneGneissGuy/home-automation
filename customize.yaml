@@ -32,6 +32,8 @@ sensor.cpu_temperature:
   icon: mdi:thermometer
 sensor.shed_pressure:
   icon: mdi:gauge
+sensor.shed_battery:
+  icon: mdi:gauge
 ### System Info Sensor ###
 sensor.speedtest_ping:
   friendly_name: Ping Speed

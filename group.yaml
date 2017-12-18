@@ -125,6 +125,7 @@ Shed:
    - sensor.shed_temperature
    - sensor.shed_humidity
    - sensor.shed_pressure
+   - sensor.shed_battery
    - switch.shed_light_switch
    - binary_sensor.shed_motion
 Weather:

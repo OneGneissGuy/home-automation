@@ -360,21 +360,13 @@
         friendly_name: 'Wind Direction'
         value_template: >-
          {% set wind_dir = states.sensor.dark_sky_wind_bearing.state %}
-         {% if wind_dir | float<=11 %}North
-         {% elif wind_dir | float>348 %}North
-         {% elif 11 < (wind_dir|float) <=34 %}NNE
-         {% elif 34 < (wind_dir|float) <=56 %}NE
-         {% elif 56 < (wind_dir|float) <=79 %}}ENE
-         {% elif 79 < (wind_dir|float) <=101 %}East
-         {% elif 101 < (wind_dir|float) <=124 %}ESE
-         {% elif 124 < (wind_dir|float) <=146 %}SE
-         {% elif 146 < (wind_dir|float) <=169 %}SSE
-         {% elif 169 < (wind_dir|float) <=191 %}South
-         {% elif 191 < (wind_dir|float) <=214 %}SSW
-         {% elif 214 < (wind_dir|float) <=236 %}SW
-         {% elif 236 < (wind_dir|float) <=259 %}WSW
-         {% elif 259 < (wind_dir|float) <=281 %}West
-         {% elif 281 < (wind_dir|float) <=304 %}WWN
-         {% elif 304 < (wind_dir|float) <=326 %}NW
-         {% elif 326 < (wind_dir|float) <=348 %}NNW
+         {% if wind_dir | float<=23 %}North
+         {% elif wind_dir | float>338 %}North
+         {% elif 23 < (wind_dir|float) <=68 %}NE
+         {% elif 68 < (wind_dir|float) <=113 %}East
+         {% elif 113 < (wind_dir|float) <=158 %}SE
+         {% elif 158 < (wind_dir|float) <=203 %}South
+         {% elif 203 < (wind_dir|float) <=248 %}SW
+         {% elif 248 < (wind_dir|float) <=293 %}West
+         {% elif 293 < (wind_dir|float) <=338 %}NW
          {%- endif %}
