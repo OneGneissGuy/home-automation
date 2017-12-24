@@ -5,26 +5,26 @@
 #include <Adafruit_Sensor.h>
 #include <Adafruit_BME280.h>
 
-// In case you have more than one sensor, make each one a different number here
-//#define sensor_number "1"
-
+#define door_topic "sensor/shed/door" //door sensor
 #define motion_topic "sensor/shed/motion" //PIR motion sensor
 #define humidity_topic "sensor/shed/humidity"
-//#define temperature_c_topic "sensor/" sensor_number "/temperature/degreeCelsius"
 #define temperature_f_topic "sensor/shed/temperature"
-//#define barometer_hpa_topic "sensor/" sensor_number "/barometer/hectoPascal"
 #define barometer_inhg_topic "sensor/shed/pressure"
 #define battery_topic "sensor/shed/battery"
 
 // Lookup for your altitude and fill in here, units hPa
 // Positive for altitude above sea level
 #define baro_corr_hpa 4.1 // =34 masl,0= no alt correction//http://www.luizmonteiro.com/Altimetry.aspx#AltitudeCorrectionforPressureAltitude
-
+#define batt_pin A0
 #define red_led 0
 #define blue_led 2
-const int  motionPin = 12;    // the pin that the pushbutton is attached to
+
+const int doorPin = 12;    // the pin that the pushbutton is attached to
+const int motionPin = 14;    // the pin that the pushbutton is attached to
 int motionState = 0;         // current state of the motion sensor
 int lastMotionState = 0;     // previous state of the motion sensor
+int lastDoorState = 0;     // previous state of the motion sensor
+int doorState = 0;     // previous state of the motion sensor
 
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -96,9 +96,7 @@ float hum = 0.0;
 float baro = 0.0;
 float diff = 1.0;
 int batt_warn = 60;
-void handleInterrupt() {
-  //an interrupt routine
-}
+
 int battery_level() {
   // read the battery level from the ESP8266 analog in pin.
   // analog read level is 10 bit 0-1023 (0V-1V).
@@ -106,9 +104,15 @@ int battery_level() {
   // lipo value of 4.2V and drops it to 0.758V max.
   // this means our min analog read value should be 580 (3.14V)
   // and the max analog read value should be 774 (4.2V).
-  int level = analogRead(A0);
+  int level = analogRead(batt_pin);
   // convert battery level to percent
   level = map(level, 580, 774, 0, 100);
+  if (level < 0) {
+    level = 0;
+  }
+  else if (level > 100) {
+    level = 100;
+  }
   Serial.print("Battery level: "); Serial.print(level); Serial.println("%");
   return level;
 }
@@ -117,28 +121,24 @@ void setup() {
   pinMode(red_led, OUTPUT);
   pinMode(blue_led, OUTPUT);
   pinMode(motionPin, INPUT);
+  pinMode(doorPin, INPUT_PULLUP);
+
   digitalWrite(red_led, HIGH);
   digitalWrite(blue_led, HIGH);
   Serial.begin(115200);
-  //attachInterrupt(digitalPinToInterrupt(motionPin), handleInterrupt, RISING);
 
   setup_wifi();
   client.setServer(mqtt_server, 1883);
   //initial post- closed
   client.publish(motion_topic, String(motionState).c_str(), true);
-
   // Set SDA and SDL ports
-  //Wire.begin(2, 14);
   // Using I2C on the HUZZAH board SCK=#5, SDI=#4 by default
-
   // Start sensor
   if (!bme.begin()) {
     Serial.println("Could not find a valid BME280 sensor, check wiring!");
     while (1);
   }
-
 }
-
 
 void loop() {
   if (!client.connected()) {
@@ -167,6 +167,8 @@ void loop() {
     float newTemp = bme.readTemperature();
     float newHum = bme.readHumidity();
     float newBaro = bme.readPressure() / 100.0F;
+    motionState = digitalRead(motionPin);
+    doorState = digitalRead(doorPin);
 
     if (checkBound(newTemp, temp, diff) || forceMsg) {
       temp = newTemp;
@@ -201,11 +203,28 @@ void loop() {
       blink_blue();
     }
 
-    motionState = digitalRead(motionPin);
     // compare the motionState to its previous state
     if (motionState != lastMotionState) {
       // if the state has changed, increment the counter
       if (motionState == HIGH) {
+        // if the current state is HIGH then the button went from off to on:
+        Serial.println("shed motion detected");
+      } else {
+        // if the current state is LOW then the button went from on to off:
+        Serial.println("");
+      }
+      // Delay a little bit to avoid bouncing
+      delay(50);
+      client.publish(motion_topic, String(motionState).c_str(), true);
+      client.publish(battery_topic, String(batt_level).c_str(), true);
+    }
+    // save the current state as the last state, for next time through the loop
+    lastDoorState = doorState;
+
+    // compare the motionState to its previous state
+    if (doorState != lastDoorState) {
+      // if the state has changed, increment the counter
+      if (doorState == HIGH) {
         // if the current state is HIGH then the button went from off to on:
         Serial.println("door opened");
       } else {
@@ -214,13 +233,11 @@ void loop() {
       }
       // Delay a little bit to avoid bouncing
       delay(50);
-      client.publish(motion_topic, String(motionState).c_str(), true);
+      client.publish(door_topic, String(motionState).c_str(), true);
       client.publish(battery_topic, String(batt_level).c_str(), true);
-
     }
     // save the current state as the last state, for next time through the loop
     lastMotionState = motionState;
-
     forceMsg = false;
   }
 }
