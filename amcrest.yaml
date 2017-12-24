@@ -1,0 +1,14 @@
+  # - host: !secret armcrest_ip
+    # username: !secret armcrest_username
+    # password: !secret armcrest_password
+      # - motion_detector
+#    source: mjpeg
+#    scan_interval: 30
+    - host: !secret camera_ip
+      username: !secret camera_user
+      password: !secret camera_password
+      # sensors:
+        # - motion_detector
+      resolution: low
+      stream_source: mjpeg
+     # scan_interval: 15

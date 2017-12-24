@@ -74,11 +74,10 @@ notify:
     api_key: !secret pushbullet_token
 
 ### INCLUDES ###
-# armcrest: !include armcrest.yaml
 # lights: !include lights.yaml
 # climate: !include climate.yaml
 # climate: !include_dir_list climate.yaml
-
+amcrest: !include amcrest.yaml
 binary_sensor: !include binary_sensor.yaml
 automation: !include automation.yaml
 camera: !include camera.yaml

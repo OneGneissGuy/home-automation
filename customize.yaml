@@ -128,7 +128,7 @@ light.master_light_level:
   friendly_name: master bedroom light
 light.hallway_light_level:
   icon: mdi:lightbulb
-  emulated_hue_name: "hall light"
+  emulated_hue_name: "sconce light"
   friendly_name: hall light
 switch.pir_office:
   icon: mdi:led-outline

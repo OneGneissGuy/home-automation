@@ -32,6 +32,7 @@ Other:
     - group.internet
     - group.links
     - group.Date
+    - camera.amcrest_camera
 People:
   name: people
   icon: mdi:account-multiple

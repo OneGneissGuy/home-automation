@@ -5,13 +5,6 @@
 #include <Adafruit_Sensor.h>
 #include <Adafruit_BME280.h>
 
-//defines in config.h
-//#define wifi_ssid ""
-//#define wifi_password ""
-//#define mqtt_server ""
-//#define mqtt_user ""
-//#define mqtt_password ""
-
 // In case you have more than one sensor, make each one a different number here
 //#define sensor_number "1"
 
@@ -154,7 +147,7 @@ void loop() {
   client.loop();
 
   long now = millis();
-  if (now - lastMsg > 1000) {
+  if (now - lastMsg > 30000) {
     lastMsg = now;
     int batt_level = battery_level();
     if (batt_level < batt_warn) {

@@ -1,3 +1,16 @@
+### Publish some values to the MQTT broker ###
+#  to be picked up a an MQTT subscriber
+  - alias: 'Publish Commute time'
+    trigger:
+      - platform: time
+        minutes: 1
+      # - platform: state
+        # entity_id: sensor.jf_evening_commute
+    action:
+      - service: mqtt.publish
+        data_template:
+          topic: 'commute/to_work/JF'
+          payload: '{{ states("sensor.jf_morning_commute") }}'
 ### TURN ON THE LIGHTS AROUND SUNSET
   - alias: 'Light on Sunset'  
     trigger:
@@ -7,8 +20,10 @@
       - platform: time
         at: '17:00'
     action:
-      - service: homeassistant.turn_on
-        entity_id: switch.porch_lights_switch
+        service: homeassistant.turn_on
+        entity_id: 
+        - switch.porch_lights_switch
+        - light.hall_light
 ### TURN OFF THE LIGHTS AT SUNRISE
   - alias: 'Light off Sunrise'  
     trigger:
@@ -18,8 +33,11 @@
       - platform: time
         at: '6:45'
     action:
-     - service: homeassistant.turn_off
-       entity_id: switch.porch_lights_switch
+       service: homeassistant.turn_off
+       entity_id: 
+        - switch.porch_lights_switch
+        - light.hall_light
+
 ### OTHER AUTOMATIONS
   - alias: Crime Report Incident
     initial_state: True
@@ -74,20 +92,21 @@
       # - service: notify.mypushbullet
         # data_template: 
           # message: "There was motion in the shed"
-  - alias: 'Shed motion monitor'
-    trigger:
-      platform: numeric_state
-      entity_id: sensor.shed_motion
-      # Optional
-      #value_template: '{{ state.attributes.shed_battery }}'
-      # At least one of the following required
-      above: 0
-      for:
-       seconds: 1
-    action:
-      - service: notify.mypushbullet
-        data_template: 
-          message: "Shed motion detected"
+  # - alias: 'Shed motion monitor'
+    # trigger:
+      # platform: numeric_state
+      # entity_id: sensor.shed_motion
+      # # Optional
+      # #value_template: '{{ state.attributes.shed_battery }}'
+      # # At least one of the following required
+      # above: 0
+      # for:
+       # seconds: 1
+    # action:
+      # - service: notify.mypushbullet
+        # data_template: 
+          # message: "Shed motion detected"
+
   - alias: 'Shed battery monitor'
     trigger:
       platform: numeric_state
