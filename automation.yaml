@@ -83,43 +83,27 @@
     action:
       - service: homeassistant.turn_off
         entity_id: switch.shed_light_switch
-  # - alias: 'Shed motion detected'
-    # trigger:
-      # platform: mqtt
-      # topic: sensor/shed/motion
-      # # Optional
-      # payload: 1
-      # - service: notify.mypushbullet
-        # data_template: 
-          # message: "There was motion in the shed"
-  # - alias: 'Shed motion monitor'
-    # trigger:
-      # platform: numeric_state
-      # entity_id: sensor.shed_motion
-      # # Optional
-      # #value_template: '{{ state.attributes.shed_battery }}'
-      # # At least one of the following required
-      # above: 0
-      # for:
-       # seconds: 1
-    # action:
-      # - service: notify.mypushbullet
-        # data_template: 
-          # message: "Shed motion detected"
+  - alias: 'Shed motion detected'
+    trigger:
+      platform: mqtt
+      topic: sensor/shed/motion
+      payload: 1
+    action:
+      - service: notify.mypushbullet
+        data_template: 
+          message: "There was motion in the shed"
 
   - alias: 'Shed battery monitor'
     trigger:
       platform: numeric_state
       entity_id: sensor.shed_battery
-    # At least one of the following required
       below: 50
-    # If given, will trigger when condition has been for X time.
       for:
-       hours: 12
+       hours: 1
     action:
       - service: notify.mypushbullet
         data_template: 
-          message: "The shed climate monitor battery is low"
+          message: "The shed node battery is low"
 #################################################################
 ## HASS Related
 #################################################################
