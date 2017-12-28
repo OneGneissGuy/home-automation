@@ -1,0 +1,20 @@
+AppDaemon:
+  logfile: STDOUT
+  errorfile: STDERR
+  logsize: 100000
+  log_generations: 3
+  threads: 10
+  logfile: /home/homeassistant/appdaemon/logs/appdaemon.log
+  errorfile:/home/homeassistant/appdaemon/logs/appdaemonerr.log
+  # cert_path: <path/to/root/CA/cert>
+  # cert_verify: True
+  # time_zone: <time zone>
+  # api_port: 5000
+  # api_key: !secret http_password
+  # api_ssl_certificate: <path/to/root/CA/cert>
+  # api_ssl_key: <path/to/root/CA/key>
+HASS:
+  ha_url: http://192.168.1.150:8123
+  ha_key: !secret http_password
+HADashboard:
+  dash_url: http://192.168.1.150:5050

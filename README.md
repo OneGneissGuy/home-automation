@@ -101,6 +101,12 @@ sudo curl -o /usr/local/bin/hassctl https://raw.githubusercontent.com/dale3h/has
 hassctl update-hass && hassctl config && hassctl restart
 ```
 
+* install appdaemon for home-assistant
+
+```
+sudo hassbian-conf install appdaemon
+```
+
 * Reboot the pi
 
 ```sh

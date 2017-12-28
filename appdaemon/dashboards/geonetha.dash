@@ -1,0 +1,156 @@
+##
+## Main arguments, all optional
+##
+title: Test Panel
+widget_dimensions: [120, 120]
+widget_margins: [5, 5]
+columns: 8
+
+# clock:
+   # widget_type: clock
+summary:
+  widget_type: sensor
+  title: Weather Forecast
+  value_style: "font-size: 100%"
+  entity: sensor.dark_sky_daily_summary
+label:
+  widget_type: label
+  text: Geonet Home Assistant
+weather:
+  widget_type: weather
+  unit: "&deg;F"
+office_light:
+  widget_type: light
+  title: Office
+  title2: Light
+  entity: switch.office_light
+hall:
+  widget_type: light
+  title: Hall
+  title2: light
+  entity: light.hallway_light_level
+christmas_tree:
+  widget_type: light
+  title: Christmas
+  title2: Tree
+  entity: switch.christmas_tree
+porch:
+  widget_type: light
+  title: Porch
+  title2: light
+  entity: switch.porch_lights_switch
+deck:
+  widget_type: light
+  title: Deck
+  title2: light
+  entity: switch.deck_light_switch
+shed:
+  widget_type: light
+  title: Shed
+  title2: light
+  entity: switch.shed_light_switch
+master:
+  widget_type: light
+  title: Master Bedroom
+  title2: light
+  entity: light.master_light_level
+guest:
+  widget_type: light
+  title: Guest Bedroom
+  title2: light
+  entity: light.guest_light_level
+
+shed_temperature:
+  widget_type: sensor
+  title: Temperature
+  title2: Sensor
+  units: "F"
+  precision: 0
+  entity: sensor.shed_temperature
+temperature:
+  widget_type: sensor
+  title: Temperature
+  title2: Outside
+  units: "F"
+  precision: 0
+  entity: sensor.ds_temperature_pretty
+dew_point:
+  widget_type: sensor
+  title: Dew point
+  units: "F"
+  precision: 0
+  entity: sensor.ds_dew_point_pretty
+shed_pressure:
+  widget_type: sensor
+  title: Pressure
+  title2: Sensor
+  units: "in Hg"
+  precision: 2
+  entity: sensor.shed_pressure
+pressure:
+  widget_type: sensor
+  title: Pressure
+  title2: Outside
+  units: "in Hg"
+  precision: 2
+  entity: sensor.ds_pressure_pretty
+humidity:
+  widget_type: sensor
+  title: Humidity
+  units: "%"
+  precision: 0
+  entity: sensor.ds_humidity_pretty
+shed_humidity:
+  widget_type: sensor
+  title: Humidity
+  title2: Sensor
+  units: "%"
+  precision: 0
+  entity: sensor.shed_humidity
+wind_speed:
+  widget_type: sensor
+  title: Wind
+  title2: Speed
+  units: "mph"
+  precision: 0
+  entity: sensor.ds_wind_speed_pretty
+wind_dir:
+  widget_type: sensor
+  title: Wind
+  title2: Direction
+  entity: sensor.wind_dir
+pollen_level:
+  widget_type: sensor
+  title: Pollen
+  title2: Level
+  entity: sensor.pollen_level
+cold_flu_risk:
+  widget_type: sensor
+  title: Cold & Flu
+  title2: Risk
+  entity: sensor.cold_flu_risk
+moon_phase:
+  widget_type: sensor
+  title: Moon
+  title2: phase
+  entity: sensor.moon
+commute_jf_morning:
+  widget_type: sensor
+  title: JF's Morning 
+  title2: Commute
+  units: "min"
+  entity: sensor.jf_morning_commute
+commute_shmoopy_morning:
+  widget_type: sensor
+  title: Shmoopy's 
+  title2: Commute
+  units: "min"
+  entity: sensor.shmoopy_morning_commute
+layout:
+     
+    - label(8x1)
+    - hall, master, guest, office_light, porch, deck, shed, christmas_tree
+#    - summary(2x1), shed_temperature, dew_point, shed_humidity, shed_pressure, wind_speed, wind_dir
+    - summary(2x1), temperature, dew_point, humidity, pressure, wind_speed, wind_dir
+    - commute_shmoopy_morning, commute_jf_morning, cold_flu_risk, pollen_level, moon_phase
+#    - weather(2x2)
