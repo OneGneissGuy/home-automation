@@ -134,7 +134,11 @@
      - Fire
      - Homicide
      - Kidnapping
-
+  - platform: xbox_live
+    api_key: !secret xbox_api_key
+    xuid:
+     - !secret xbox_uid
+  
   - platform: google_travel_time
     name: Shmoopy Morning Commute
     api_key: !secret google_key

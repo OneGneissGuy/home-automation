@@ -15,7 +15,6 @@ default_view:
   - group.switches
   - group.crime
   - group.Date
-
 Climate:
   view: yes
   icon: mdi:weather-cloudy
@@ -39,6 +38,13 @@ People:
   view: yes
   entities:
     - group.Tracking
+Xbox:
+  name: Xbox Live
+  icon: mdi:xbox
+  view: yes
+  entities:
+   - sensor.mildewytundra3
+
 Health:
   name: Health
   icon: mdi:medical-bag
@@ -83,7 +89,6 @@ System Monitor:
     - sensor.since_last_boot
     - sensor.ha_installed_version
     - sensor.ha_current_version
-
 Internet:
   entities:
    - sensor.external_ip
@@ -153,7 +158,6 @@ Weather:
    - sensor.ds_pressure_pretty
    - sensor.ds_wind_speed_pretty
    - sensor.wind_dir
-   #- sensor.dark_sky_wind_bearing
    - sensor.moon
    - camera.doppler
 Cold_and_Flu:
