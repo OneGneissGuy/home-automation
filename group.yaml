@@ -13,7 +13,6 @@ default_view:
   - group.links 
   - climate.lyric
   - group.switches
-  - group.crime
   - group.Date
 Climate:
   view: yes
@@ -136,9 +135,6 @@ Links:
   - weblink.router
   - weblink.news
   - weblink.traffic
-Crime:
-    entities: 
-    - sensor.crimereports
 Shed:
   entities:
    - sensor.shed_temperature

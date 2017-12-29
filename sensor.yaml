@@ -117,28 +117,10 @@
       - dew_point
       - wind_bearing
   - platform: moon
-### OTHER ###
-  - platform: crimereports
-    name: local_crime
-    radius: 100000
-    latitude: !secret home_latitude
-    longitude: !secret home_longitude
-    include: 
-     - Alarm
-     - Arson
-     - Assault
-     - Assault with Deadly Weapon
-     - Breaking & Entering
-     - Death
-     - Drugs
-     - Fire
-     - Homicide
-     - Kidnapping
   - platform: xbox_live
     api_key: !secret xbox_api_key
     xuid:
      - !secret xbox_uid
-  
   - platform: google_travel_time
     name: Shmoopy Morning Commute
     api_key: !secret google_key

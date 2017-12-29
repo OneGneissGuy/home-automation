@@ -69,10 +69,6 @@ sensor.ha_last_restart:
 sensor.external_ip:
   friendly_name: WAN IP Address
   icon: mdi:wan
-group.crime:
-  icon: 'mdi:ambulance'
-sensor.crimereports:
-  icon: 'mdi:ambulance'
 sensor.pollen_index:
   icon: mdi:flower
 sensor.pollen_level:
