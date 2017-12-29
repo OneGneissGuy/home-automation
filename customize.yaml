@@ -97,7 +97,19 @@ sensor.cold__flu_percentage:
   icon: mdi:snowflake
 sensor.cold_flu_risk:
   icon: mdi:snowflake
-  ### SWITCHES ###
+sensor.pihole_ads_blocked_today:
+  friendly_name: Ads blocked
+sensor.pihole_ads_percentage_blocked_today:
+  friendly_name: Ads percentage blocked
+sensor.pihole_dns_queries_cached:
+  friendly_name: DNS queries cached
+sensor.pihole_dns_queries_forwarded:
+  friendly_name: DNS queries forwarded
+sensor.pihole_dns_queries_today:
+  friendly_name: DNS queries today
+sensor.pihole_dns_unique_clients:
+  friendly_name: DNS clients
+### SWITCHES ###
 switch.cpu_fan:
   friendly_name: CPU Cooling Fan
   icon: mdi:fan

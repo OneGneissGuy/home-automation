@@ -51,13 +51,26 @@ Settings:
   name: Settings
   icon: mdi:settings
   entities:
-   - switch.aeotec_zstick_disco_light
    - group.scripts
+Pi_hole:
+  view: yes
+  name: Pi-Hole
+  icon: mdi:cart
+  entities:
+   - group.blocked_ads
 ############################################################
 #                                                          #
 #                  Entities Groups                         #
 #                                                          #
 ############################################################
+Blocked Ads:
+  entities:
+    - sensor.pihole_ads_blocked_today
+    - sensor.pihole_ads_percentage_blocked_today
+    - sensor.pihole_dns_queries_cached
+    - sensor.pihole_dns_queries_forwarded
+    - sensor.pihole_dns_queries_today
+    - sensor.pihole_dns_unique_clients
 System Monitor:
   entities:
     - switch.cpu_fan
