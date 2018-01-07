@@ -1,11 +1,9 @@
 ### Publish some values to the MQTT broker ###
-#  to be picked up a an MQTT subscriber
+#  to be picked up by an MQTT subscriber
   - alias: 'Publish Commute time'
     trigger:
       - platform: time
         minutes: 1
-      # - platform: state
-        # entity_id: sensor.jf_evening_commute
     action:
       - service: mqtt.publish
         data_template:
@@ -23,7 +21,7 @@
         service: homeassistant.turn_on
         entity_id: 
         - switch.porch_lights_switch
-        - light.hall_light
+#        - light.hall_light
 ### TURN OFF THE LIGHTS AT SUNRISE
   - alias: 'Light off Sunrise'  
     trigger:
@@ -31,79 +29,69 @@
         event: sunrise
         offset: "+00:10:00"
       - platform: time
-        at: '6:45'
+        at: '7:30'
     action:
        service: homeassistant.turn_off
        entity_id: 
         - switch.porch_lights_switch
-        - light.hall_light
+#        - light.hallway_light
 
 ### OTHER AUTOMATIONS
-  - alias: Crime Report Incident
-    initial_state: True
-    trigger:
-       - platform: event
-         event_type: crimereports_incident
-    action:
-       - service: notify.mypushbullet
-         data_template:
-           message: >
-            {{ trigger.event.data.type }}, {{ trigger.event.data.description }}, occured at {{ trigger.event.data.location | title }} {{ (as_timestamp(trigger.event.data.timestamp) | int | timestamp_custom('%A at %I:%M %P')) | replace(' 0', ' ') }}.
-  - alias: 'Shed light on motion'
-    trigger:
-      - platform: state
-        entity_id: binary_sensor.shed_motion
-        from: 'off'
-        to: 'on'
-    condition: 
-      condition: and
-      conditions:
-        - condition: sun
-          after: sunset
-          after_offset: "-0:30:00"
-        - condition: sun
-          before: sunrise
-          before_offset: "-0:30:00"
-        - condition: state
-          entity_id: sun.sun
-          state: 'below_horizon'
+  # - alias: 'Shed light on motion'
+    # trigger:
+      # - platform: state
+        # entity_id: binary_sensor.shed_motion
+        # from: 'off'
+        # to: 'on'
+    # condition: 
+      # condition: and
+      # conditions:
+        # - condition: sun
+          # after: sunset
+          # after_offset: "-0:30:00"
+        # - condition: sun
+          # before: sunrise
+          # before_offset: "-0:30:00"
+        # - condition: state
+          # entity_id: sun.sun
+          # state: 'below_horizon'
 
-    action:
-      - service: homeassistant.turn_on
-        entity_id: switch.shed_light_switch
+    # action:
+      # - service: homeassistant.turn_on
+        # entity_id: switch.shed_light_switch
 
-  - alias: 'Shed light off motion with delay'
-    trigger:
-      platform: state
-      entity_id: switch.shed_light_switch
-      from: 'off'
-      to: 'on'
-      for:
-        minutes: 10
-    action:
-      - service: homeassistant.turn_off
-        entity_id: switch.shed_light_switch
-  - alias: 'Shed motion detected'
-    trigger:
-      platform: mqtt
-      topic: sensor/shed/motion
-      payload: 1
-    action:
-      - service: notify.mypushbullet
-        data_template: 
-          message: "There was motion in the shed"
+  # - alias: 'Shed light off motion with delay'
+    # trigger:
+      # platform: state
+      # entity_id: switch.shed_light_switch
+      # from: 'off'
+      # to: 'on'
+      # for:
+        # minutes: 10
+    # action:
+      # - service: homeassistant.turn_off
+        # entity_id: switch.shed_light_switch
+  # - alias: 'Shed motion detected'
+    # trigger:
+      # platform: mqtt
+      # topic: sensor/shed/motion
+      # payload: 1
+    # action:
+      # - service: notify.mypushbullet
+        # data_template: 
+          # message: "There was motion in the shed"
 
-  - alias: 'Shed battery monitor'
-    trigger:
-      platform: numeric_state
-      entity_id: sensor.shed_battery
-      below: 50
-      for:
-       hours: 1
-    action:
-      - service: notify.mypushbullet
-        data_template: 
-          message: "The shed node battery is low"
+  # - alias: 'Shed battery monitor'
+    # trigger:
+      # platform: numeric_state
+      # entity_id: sensor.shed_battery
+      # below: 50
+      # for:
+       # hours: 1
+    # action:
+      # - service: notify.mypushbullet
+        # data_template: 
+          # message: "The shed node battery is low"
 #################################################################
 ## HASS Related
 #################################################################
@@ -136,6 +124,14 @@
       - service: frontend.set_theme
         data_template:
           name: '{{states.input_select.current_theme.state}}'
+  - alias: Update notifications
+    trigger:
+     - platform: state
+       entity_id: updater.updater
+    action:
+     - service: notify.mypushbullet
+       data_template: 
+         message: "Home Assistant  {{ states.updater.updater.state }}  is now available."
 ### HEAL ZWAVE NETWORK DAILY
   - id: heal_zwave_network
     alias: Heal Z-Wave Network
@@ -147,11 +143,3 @@
      - service: zwave.heal_network
        data_template: 
          message: "zwave nework healed."
-  - alias: Update notifications
-    trigger:
-     - platform: state
-       entity_id: updater.updater
-    action:
-     - service: notify.mypushbullet
-       data_template: 
-         message: "Home Assistant  {{ states.updater.updater.state }}  is now available."

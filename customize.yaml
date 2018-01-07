@@ -114,9 +114,9 @@ switch.sound_machine:
 switch.office_light:
   icon: mdi:lightbulb
   emulated_hue_name: "office light"
-switch.christmas_tree:
+switch.wemo_switch:
   icon: mdi:lightbulb
-  emulated_hue_name: "christmas tree"
+  emulated_hue_name: "wemo switch"
 switch.porch_lights_switch:
   icon: mdi:lightbulb
   emulated_hue_name: "front lights"
@@ -128,16 +128,16 @@ switch.shed_light_switch:
   emulated_hue_name: "shed light"
 light.guest_light_level:
   icon: mdi:lightbulb
-  emulated_hue_name: "guest bedroom light"
-  friendly_name: guest bedroom light
+  emulated_hue_name: "guest light"
+  friendly_name: guest light
 light.master_light_level:
   icon: mdi:lightbulb
-  emulated_hue_name: "master bedroom light"
-  friendly_name: master bedroom light
+  emulated_hue_name: "master light"
+  friendly_name: master light
 light.hallway_light_level:
   icon: mdi:lightbulb
-  emulated_hue_name: "sconce light"
-  friendly_name: hall light
+  emulated_hue_name: "hallway light"
+  friendly_name: hallway light
 switch.pir_office:
   icon: mdi:led-outline
 #climate.lyric:

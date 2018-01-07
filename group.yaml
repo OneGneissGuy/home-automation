@@ -42,8 +42,7 @@ Xbox:
   icon: mdi:xbox
   view: yes
   entities:
-   - sensor.mildewytundra3
-
+    - group.xbox_users
 Health:
   name: Health
   icon: mdi:medical-bag
@@ -56,13 +55,13 @@ Settings:
   name: Settings
   icon: mdi:settings
   entities:
-   - group.scripts
+    - group.scripts
 Pi_hole:
   view: yes
   name: Pi-Hole
   icon: mdi:cart
   entities:
-   - group.blocked_ads
+    - group.blocked_ads
 ############################################################
 #                                                          #
 #                  Entities Groups                         #
@@ -76,6 +75,9 @@ Blocked Ads:
     - sensor.pihole_dns_queries_forwarded
     - sensor.pihole_dns_queries_today
     - sensor.pihole_dns_unique_clients
+Xbox_users:
+  entities:
+    - sensor.mildewytundra3
 System Monitor:
   entities:
     - switch.cpu_fan
@@ -100,11 +102,12 @@ Switches:
   entities:
    - switch.lyric_hold
    - switch.sound_machine
+   - switch.wemo_switch
+
 Lights:
   entities:
    - switch.porch_lights_switch
    - switch.deck_light_switch
-   - switch.christmas_tree
    - switch.office_light
    - switch.shed_light_switch
    - light.master_light_level
@@ -145,6 +148,7 @@ Shed:
    - binary_sensor.shed_motion
 Weather:
    entities:
+   - camera.doppler
    - sensor.dark_sky_summary
    - sensor.dark_sky_daily_summary
    - sensor.dark_sky_hourly_summary
@@ -155,7 +159,6 @@ Weather:
    - sensor.ds_wind_speed_pretty
    - sensor.wind_dir
    - sensor.moon
-   - camera.doppler
 Cold_and_Flu:
   entities:
     - sensor.cold__flu_percentage
@@ -164,12 +167,11 @@ Pollen:
   entities:
     - sensor.pollen_index
     - sensor.pollen_level
-    - sensor.top_allergen_1      
-    - sensor.top_allergen_2      
-    - sensor.top_allergen_3
+    - sensor.top_allergen_1
+#    - sensor.top_allergen_2
+#    - sensor.top_allergen_3
     - sensor.pollen_trend
     - sensor.pollen_outlook    
     - sensor.pollen_season
     - sensor.pollen_index_forecast
     - sensor.pollen_level_forecast
-      

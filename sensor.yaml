@@ -18,7 +18,6 @@
      - queries_forwarded 
      - unique_clients 
      - unique_domains
-
 # Internets speedtest
   - platform: speedtest
 # Test connection every six hours, on the hour
@@ -89,38 +88,21 @@
 # owntracks battery levels
   - platform: mqtt
     state_topic: "owntracks/jf/note5"
-    name: "JF Phone Battery "
+    name: "JF Phone Battery"
     unit_of_measurement: "%"
     value_template: '{{ value_json.batt }}'
   - platform: mqtt
     state_topic: "owntracks/shmoopy/galaxy"
-    name: "Shmoopy Phone Battery "
+    name: "Shmoopy Phone Battery"
     unit_of_measurement: "%"
     value_template: '{{ value_json.batt }}'
-### WEATHER ETC. ###### WEATHER ETC. ###
-# Local weather report from openweathermap
-  # - platform: openweathermap
-    # api_key: !secret owm_key
-  - platform: darksky
-    api_key: !secret darksky_api_key
-    monitored_conditions:
-      - summary
-      - icon
-      - nearest_storm_distance
-      - wind_speed
-      - cloud_cover
-      - hourly_summary
-      - daily_summary
-      - temperature
-      - humidity
-      - pressure
-      - dew_point
-      - wind_bearing
-  - platform: moon
+# XBOX LIVE USERS
   - platform: xbox_live
     api_key: !secret xbox_api_key
     xuid:
-     - !secret xbox_uid
+     - !secret xbox_uid1
+     - !secret xbox_uid2
+# GOOGLE TRAVEL TIMES
   - platform: google_travel_time
     name: Shmoopy Morning Commute
     api_key: !secret google_key
@@ -151,6 +133,24 @@
     api_key: !secret google_key
     origin: device_tracker.jf_note5
     destination: zone.home
+##### WEATHER ETC. ###### 
+  - platform: darksky
+    api_key: !secret darksky_api_key
+    monitored_conditions:
+      - summary
+      - icon
+      - nearest_storm_distance
+      - wind_speed
+      - cloud_cover
+      - hourly_summary
+      - daily_summary
+      - temperature
+      - humidity
+      - pressure
+      - dew_point
+      - wind_bearing
+  - platform: moon
+##### REST ###### 
   # Today's Pollen Index
   - platform: rest
     name: 'Pollen Index'
@@ -159,7 +159,87 @@
     scan_interval: 21600
     headers:
       Referer: "https://www.pollen.com"
-
+  # Tomorrow's Pollen Index Forecast
+  - platform: rest
+    name: 'Pollen Index Forecast'
+    resource: !secret pollen_current_url
+    value_template: "{{value_json.Location.periods[2].Index}}"
+    scan_interval: 21600
+    headers:
+      Referer: "https://www.pollen.com"
+  # Today's Top Allergen
+  - platform: rest
+    name: 'Top Allergen 1'
+    resource: !secret pollen_current_url
+    value_template: >-
+      {% if value_json.Location.periods[1].Triggers[0] %}
+      {{ value_json.Location.periods[1].Triggers[0].PlantType }}
+      {% else %}
+      -
+      {% endif %}
+    scan_interval: 21600
+    headers:
+      Referer: "https://www.pollen.com"
+  # Today's Second Allergen
+  - platform: rest
+    name: 'Top Allergen 2'
+    resource: !secret pollen_current_url
+    value_template: >-
+      {% if value_json.Location.periods[1].Triggers[1] %}
+      {{ value_json.Location.periods[1].Triggers[1].PlantType }}
+      {% else %}
+      -
+      {% endif %}
+    scan_interval: 21600
+    headers:
+      Referer: "https://www.pollen.com"
+  # Today's Third Allergen
+  - platform: rest
+    name: 'Top Allergen 3'
+    resource: !secret pollen_current_url
+    value_template: >-
+      {% if value_json.Location.periods[1].Triggers[2] %}
+      {{ value_json.Location.periods[1].Triggers[2].PlantType }}
+      {% else %}
+      -
+      {% endif %}
+    scan_interval: 21600
+    headers:
+      Referer: "https://www.pollen.com"
+  # Pollen Trend
+  - platform: rest
+    name: 'Pollen Trend'
+    resource: !secret pollen_forecast_url
+    value_template: "{{value_json.Trend}}"
+    scan_interval: 21600
+    headers:
+      Referer: "https://www.pollen.com"
+  # Pollen Outlook
+  - platform: rest
+    name: 'Pollen Outlook'
+    resource: !secret pollen_forecast_url
+    value_template: "{{value_json.Outlook}}"
+    scan_interval: 21600
+    headers:
+      Referer: "https://www.pollen.com"
+  # Pollen Season
+  - platform: rest
+    name: 'Pollen Season'
+    resource: !secret pollen_forecast_url
+    value_template: "{{value_json.Season}}"
+    scan_interval: 21600
+    headers:
+      Referer: "https://www.pollen.com"
+  # Today's Cold/Flu Percentage
+  - platform: rest
+    name: 'Cold & Flu Percentage'
+    resource: !secret cold_url
+    value_template: "{{value_json.Location.periods[1].Index}}"
+    scan_interval: 21600
+    headers:
+      Referer: "https://www.pollen.com"
+    unit_of_measurement: "%"
+### TEMPLATES ###
   # Today's Pollen Level
   - platform: template
     sensors:
@@ -181,15 +261,6 @@
               Unknown
           {%- endif %}
 
-  # Tomorrow's Pollen Index Forecast
-  - platform: rest
-    name: 'Pollen Index Forecast'
-    resource: !secret pollen_current_url
-    value_template: "{{value_json.Location.periods[2].Index}}"
-    scan_interval: 21600
-    headers:
-      Referer: "https://www.pollen.com"
-
   # Tomorrow's Pollen Level Forecast
   - platform: template
     sensors:
@@ -210,87 +281,8 @@
           {% else %}
               Unknown
           {%- endif %}
-
-  # Today's Top Allergen
-  - platform: rest
-    name: 'Top Allergen 1'
-    resource: !secret pollen_current_url
-    value_template: >-
-      {% if value_json.Location.periods[1].Triggers[0] %}
-      {{ value_json.Location.periods[1].Triggers[0].PlantType }}
-      {% else %}
-      -
-      {% endif %}
-    scan_interval: 21600
-    headers:
-      Referer: "https://www.pollen.com"
-
-  # Today's Second Allergen
-  - platform: rest
-    name: 'Top Allergen 2'
-    resource: !secret pollen_current_url
-    value_template: >-
-      {% if value_json.Location.periods[1].Triggers[1] %}
-      {{ value_json.Location.periods[1].Triggers[1].PlantType }}
-      {% else %}
-      -
-      {% endif %}
-    scan_interval: 21600
-    headers:
-      Referer: "https://www.pollen.com"
-
-  # Today's Third Allergen
-  - platform: rest
-    name: 'Top Allergen 3'
-    resource: !secret pollen_current_url
-    value_template: >-
-      {% if value_json.Location.periods[1].Triggers[2] %}
-      {{ value_json.Location.periods[1].Triggers[2].PlantType }}
-      {% else %}
-      -
-      {% endif %}
-    scan_interval: 21600
-    headers:
-      Referer: "https://www.pollen.com"
-
-  # Pollen Trend
-  - platform: rest
-    name: 'Pollen Trend'
-    resource: !secret pollen_forecast_url
-    value_template: "{{value_json.Trend}}"
-    scan_interval: 21600
-    headers:
-      Referer: "https://www.pollen.com"
-
-  # Pollen Outlook
-  - platform: rest
-    name: 'Pollen Outlook'
-    resource: !secret pollen_forecast_url
-    value_template: "{{value_json.Outlook}}"
-    scan_interval: 21600
-    headers:
-      Referer: "https://www.pollen.com"
-
-  # Pollen Season
-  - platform: rest
-    name: 'Pollen Season'
-    resource: !secret pollen_forecast_url
-    value_template: "{{value_json.Season}}"
-    scan_interval: 21600
-    headers:
-      Referer: "https://www.pollen.com"
-
-  # Today's Cold/Flu Percentage
-  - platform: rest
-    name: 'Cold & Flu Percentage'
-    resource: !secret cold_url
-    value_template: "{{value_json.Location.periods[1].Index}}"
-    scan_interval: 21600
-    headers:
-      Referer: "https://www.pollen.com"
-    unit_of_measurement: "%"
-### TEMPLATES ###
   # Today's Cold/Flu Risk
+  # Assign qualitative risks from state values
   - platform: template
     sensors:
       cold_flu_risk:
@@ -315,12 +307,13 @@
       sunset:
         friendly_name: "Sunset"
         entity_id: sun.sun
-        # unit_of_measurement: 'degrees'
         value_template: "{{ states.sun.sun.attributes.next_dusk }}"
       sunrise:
         friendly_name: "Sunrise"
         entity_id: sun.sun
         value_template: "{{ states.sun.sun.attributes.next_rising }}"
+  # Set the precision of dark sky weather(pressure, temperature and humidity, dew point
+  # and wind speed) data for pretty printing on front panel
   - platform: template
     sensors:
       ds_pressure_pretty:
@@ -351,6 +344,7 @@
         friendly_name: "Wind speed"
         unit_of_measurement: 'mph'
         value_template: "{{ states('sensor.dark_sky_wind_speed')|round(0) }}"
+  # Assign principal wind directions from wind direction in degrees
   - platform: template
     sensors:
       wind_dir:
