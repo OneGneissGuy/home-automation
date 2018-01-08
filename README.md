@@ -1,19 +1,26 @@
 
 # My Home Assistant Setup #
-## 0. Setup
+## 0. Setup Hardware
 - Setup your Raspberry Pi like [this](https://hackernoon.com/raspberry-pi-headless-install-462ccabd75d0)
-## 1. Installed devices
-- [Raspberry Pi 3 model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)
-- [Z-Stick Gen5](https://aeotec.com/z-wave-usb-stick)
-- [GE 14291 Z-Wave Plus In-Wall Paddle Smart ON/OFF Switch](https://www.zwaveproducts.com/shop/brands/ge/14291-ge-14291-z-wave-plus-in-wall-paddle-smart-on-off-switch) 
-- [Wemo® Switch Smart Plug](http://www.belkin.com/us/p/P-F7C027/)
-- [Adafruit Feather HUZZAH ESP8266](https://www.adafruit.com/product/2821)
-- [Adafruit BME280 I2C or SPI Temperature Humidity Pressure Sensor](https://www.adafruit.com/product/2652)
-- [Amcrest IP2M-842 HD WiFi Camera](https://amcrest.com/amcrest-1080p-bullt-wifi-video-security-ip-camera-pt-ip2m-842-white.html)
-- [GoControl Z-Wave Dimmable LED Light Bulb, LB60Z-1](https://www.amazon.com/gp/product/B00PJH16UC/ref=oh_aui_detailpage_o00_s01?ie=UTF8&psc=1)
-## 2. Installed software
-- [Hassbian](https://home-assistant.io/docs/installation/hassbian/)
 
+## 1. Devices
+- Hardware
+	- [Raspberry Pi 3 model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)
+	- [Z-Stick Gen5](https://aeotec.com/z-wave-usb-stick)
+- Lights 
+	- [GoControl Z-Wave Dimmable LED Light Bulb, LB60Z-1](https://www.amazon.com/gp/product/B00PJH16UC/ref=oh_aui_detailpage_o00_s01?ie=UTF8&psc=1) (x3)
+- Switches
+	- [GE 14291 Z-Wave Plus In-Wall Paddle Smart ON/OFF Switch](https://www.zwaveproducts.com/shop/brands/ge/14291-ge-14291-z-wave-plus-in-wall-paddle-smart-on-off-switch) (x3)
+	- [Wemo® Switch Smart Plug](http://www.belkin.com/us/p/P-F7C027/) (x2)
+	- [Wemo® Insight Smart Plug](http://www.belkin.com/us/p/P-F7C029/) (x1)
+- Cameras
+	- [Amcrest IP2M-842 HD WiFi Camera](https://amcrest.com/amcrest-1080p-bullt-wifi-video-security-ip-camera-pt-ip2m-842-white.html)
+- Other 
+	- [Adafruit Feather HUZZAH ESP8266](https://www.adafruit.com/product/2821) running MQTT
+		- [Adafruit BME280 I2C or SPI Temperature Humidity Pressure Sensor](https://www.adafruit.com/product/2652)
+## 2. Home Automation Software
+- [Hassbian](https://home-assistant.io/docs/installation/hassbian/)
+	- Running version 60.1
 ## 3. Useful commands
 * Config the raspberry pi (things like keyboard layout, timezone, etc.)
 
