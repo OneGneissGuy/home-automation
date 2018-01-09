@@ -11,13 +11,23 @@
 	- [GoControl Z-Wave Dimmable LED Light Bulb, LB60Z-1](https://www.amazon.com/gp/product/B00PJH16UC/ref=oh_aui_detailpage_o00_s01?ie=UTF8&psc=1) (x3)
 - Switches
 	- [GE 14291 Z-Wave Plus In-Wall Paddle Smart ON/OFF Switch](https://www.zwaveproducts.com/shop/brands/ge/14291-ge-14291-z-wave-plus-in-wall-paddle-smart-on-off-switch) (x3)
+	- [GE 14291 Z-Wave Plus In-Wall Paddle Smart ON/OFF Switch](https://www.zwaveproducts.com/shop/brands/ge/14291-ge-14291-z-wave-plus-in-wall-paddle-smart-on-off-switch) (x3)
 	- [Wemo® Switch Smart Plug](http://www.belkin.com/us/p/P-F7C027/) (x2)
 	- [Wemo® Insight Smart Plug](http://www.belkin.com/us/p/P-F7C029/) (x1)
+- Door/Window
+	- [Aeotec by Aeon Labs ZW120 Door / Window Sensor](https://www.amazon.com/gp/product/B01GK5D1PE/ref=oh_aui_detailpage_o00_s01?ie=UTF8&psc=1) (x2)
+- Motion
+	- [BeSense ZWave Ceiling PIR Motion Detector](https://www.amazon.com/gp/product/B01LY1IZEX/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1 (x2))
+	- [Zooz Z-Wave Plus 2-in-1 Motion and Light Mini Sensor ZSE09](https://www.amazon.com/gp/product/B01M00K2XE/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1)
 - Cameras
 	- [Amcrest IP2M-842 HD WiFi Camera](https://amcrest.com/amcrest-1080p-bullt-wifi-video-security-ip-camera-pt-ip2m-842-white.html)
 - Other 
 	- [Adafruit Feather HUZZAH ESP8266](https://www.adafruit.com/product/2821) running MQTT
 		- [Adafruit BME280 I2C or SPI Temperature Humidity Pressure Sensor](https://www.adafruit.com/product/2652)
+	- Amazon Echo (1st Gen)
+	- Amazon Echo Dot (1st Gen)
+	- Xbox One S
+
 ## 2. Home Automation Software
 - [Hassbian](https://home-assistant.io/docs/installation/hassbian/)
 	- Running version 60.1

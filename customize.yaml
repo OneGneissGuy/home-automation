@@ -120,26 +120,34 @@ switch.wemo_switch:
 switch.porch_lights_switch:
   icon: mdi:lightbulb
   emulated_hue_name: "front lights"
+  friendly_name: Porch light
 switch.deck_light_switch:
   icon: mdi:lightbulb
   emulated_hue_name: "back lights"
+  friendly_name: Deck light
 switch.shed_light_switch:
   icon: mdi:lightbulb
   emulated_hue_name: "shed light"
+  friendly_name: Shed light
+switch.pir_office:
+  icon: mdi:led-outline
 light.guest_light_level:
   icon: mdi:lightbulb
   emulated_hue_name: "guest light"
-  friendly_name: guest light
+  friendly_name: Guest light
 light.master_light_level:
   icon: mdi:lightbulb
   emulated_hue_name: "master light"
-  friendly_name: master light
+  friendly_name: Master light
 light.hallway_light_level:
   icon: mdi:lightbulb
   emulated_hue_name: "hallway light"
-  friendly_name: hallway light
-switch.pir_office:
-  icon: mdi:led-outline
+  friendly_name: Hallway light
+light.den_lights_level:
+  icon: mdi:lightbulb
+  emulated_hue_name: "den lights"
+  friendly_name: Den lights
+
 #climate.lyric:
 #  friendly_name: Lyric_Thermostat
 #  entity_picture: https://images-na.ssl-images-amazon.com/images/G/01/aplusautomation/vendorimages/f48f035a-f073-458c-8777-eac34ddc6c33.jpg._CB278656136__SR285,285_.jpg
