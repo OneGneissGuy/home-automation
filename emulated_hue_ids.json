@@ -6,6 +6,7 @@
     "13": "switch.shed_light_switch",
     "14": "switch.wemo_switch",
     "15": "light.ge_14294_inwall_smart_dimmer_level",
+    "16": "light.den_lights_level",
     "2": "light.guest_light_level",
     "3": "switch.cpu_fan",
     "4": "switch.lyric_hold",
