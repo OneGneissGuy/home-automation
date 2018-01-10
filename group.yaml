@@ -10,6 +10,8 @@ default_view:
   entities:
   - group.lights
   - camera.porch
+  - group.motion
+  - group.doors
   - group.links 
   - climate.lyric
   - group.switches
@@ -79,6 +81,13 @@ Xbox_users:
   entities:
     - sensor.mildewytundra3
     - sensor.ickyrob
+Motion:
+  entities:
+    - binary_sensor.zooz_zse09_mini_sensor_sensor
+Doors:
+  entities:
+    - binary_sensor.front_door_sensor
+    - binary_sensor.slider_sensor
 System Monitor:
   entities:
     - switch.cpu_fan
@@ -111,7 +120,7 @@ Lights:
    - switch.deck_light_switch
    - switch.office_light
    - switch.shed_light_switch
-   - light.den_lights
+   - light.den_lights_level
    - light.master_light_level
    - light.hallway_light_level
    - light.guest_light_level

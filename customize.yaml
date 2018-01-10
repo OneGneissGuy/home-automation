@@ -105,6 +105,15 @@ sensor.pihole_dns_queries_today:
   friendly_name: DNS queries today
 sensor.pihole_dns_unique_clients:
   friendly_name: DNS clients
+binary_sensor.zooz_zse09_mini_sensor_sensor:
+  friendly_name: Den motion
+  icon: mdi:run_fast
+binary_sensor.front_door_sensor:
+  friendly_name: Front door
+  icon: mdi:door
+binary_sensor.slider_sensor:
+  friendly_name: Slider
+  icon: mdi:door
 ### SWITCHES ###
 switch.cpu_fan:
   friendly_name: CPU Cooling Fan
@@ -147,7 +156,6 @@ light.den_lights_level:
   icon: mdi:lightbulb
   emulated_hue_name: "den lights"
   friendly_name: Den lights
-
 #climate.lyric:
 #  friendly_name: Lyric_Thermostat
 #  entity_picture: https://images-na.ssl-images-amazon.com/images/G/01/aplusautomation/vendorimages/f48f035a-f073-458c-8777-eac34ddc6c33.jpg._CB278656136__SR285,285_.jpg
